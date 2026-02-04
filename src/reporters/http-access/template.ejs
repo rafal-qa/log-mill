@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTTP Access Report</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 12px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px 12px;
+      text-align: left;
+    }
+    th {
+      background: #f4f4f4;
+    }
+  </style>
+</head>
+<body>
+  <h1>HTTP Access Report</h1>
+
+  <p>Total requests: <strong><%= stats.totalRequests %></strong></p>
+  <p>Parse errors: <strong><%= stats.parseErrors %></strong></p>
+
+  <h2>Requests by Day</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Requests</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (const [day, count] of [...stats.requestsByDay.entries()].sort()) { %>
+      <tr>
+        <td><%= day %></td>
+        <td><%= count %></td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+</body>
+</html>
