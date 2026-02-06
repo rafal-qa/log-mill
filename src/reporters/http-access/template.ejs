@@ -41,7 +41,7 @@
       </tr>
     </thead>
     <tbody>
-      <% for (const [day, count] of [...stats.requestsByDay.entries()].sort()) { %>
+      <% for (const [day, count] of Object.entries(stats.requestsByDay).sort()) { %>
       <tr>
         <td><%= day %></td>
         <td><%= count %></td>

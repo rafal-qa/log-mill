@@ -1,29 +1,22 @@
 import type { Parser, Processor, Reporter } from "./interfaces.js";
 
-export interface ModeComponents {
-  parser: Parser<unknown>;
-  processor: Processor<unknown, unknown>;
-  reporter: Reporter<unknown>;
+export interface ModeComponents<TRecord, TResult> {
+  parser: Parser<TRecord>;
+  processor: Processor<TRecord, TResult>;
+  reporter: Reporter<TResult>;
 }
 
 class Registry {
-  private modes = new Map<string, ModeComponents>();
+  private modes = new Map<string, ModeComponents<unknown, unknown>>();
 
-  registerMode(name: string, components: ModeComponents): void {
-    if (this.modes.has(name)) {
-      throw new Error(`Mode already registered: ${name}`);
-    }
-
-    if (components.parser.recordSchema !== components.processor.inputSchema) {
-      throw new Error(
-        `Mode "${name}": schema mismatch between parser and processor`,
-      );
-    }
-
+  registerMode<TRecord, TResult>(
+    name: string,
+    components: ModeComponents<TRecord, TResult>,
+  ): void {
     this.modes.set(name, components);
   }
 
-  getMode(name: string): ModeComponents | undefined {
+  getMode(name: string): ModeComponents<unknown, unknown> | undefined {
     return this.modes.get(name);
   }
 

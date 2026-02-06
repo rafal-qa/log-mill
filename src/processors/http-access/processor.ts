@@ -1,14 +1,19 @@
 import type {
   Processor,
   ParseError,
+  ParsedRecord,
   ProcessorContext,
 } from "../../core/interfaces.js";
-import type { Result } from "../../core/types.js";
-import { HttpAccessRecordSchema } from "../../contracts/http-access-contract.js";
-import type { HttpAccessRecord } from "../../contracts/http-access-contract.js";
-import type { VisitorStats } from "../../contracts/http-access-contract.js";
+import type { Result } from "../../core/result.js";
+import type { HttpAccessRecord } from "../../parsers/http-access-parser.js";
 
 const PROGRESS_INTERVAL = 10_000;
+
+export interface VisitorStats {
+  totalRequests: number;
+  parseErrors: number;
+  requestsByDay: Record<string, number>;
+}
 
 /**
  * Formats a Date as YYYY-MM-DD in UTC.
@@ -23,16 +28,14 @@ function toDateKey(date: Date): string {
 export class HttpAccessProcessor
   implements Processor<HttpAccessRecord, VisitorStats>
 {
-  readonly inputSchema = HttpAccessRecordSchema;
-
   async process(
-    records: AsyncIterable<Result<HttpAccessRecord, ParseError>>,
+    records: AsyncIterable<Result<ParsedRecord<HttpAccessRecord>, ParseError>>,
     context: ProcessorContext,
   ): Promise<VisitorStats> {
     let totalRequests = 0;
     let parseErrors = 0;
     let linesProcessed = 0;
-    const requestsByDay = new Map<string, number>();
+    const requestsByDay: Record<string, number> = {};
 
     for await (const result of records) {
       linesProcessed++;
@@ -47,8 +50,8 @@ export class HttpAccessProcessor
       }
 
       totalRequests++;
-      const day = toDateKey(result.value.timestamp);
-      requestsByDay.set(day, (requestsByDay.get(day) ?? 0) + 1);
+      const day = toDateKey(result.value.record.timestamp);
+      requestsByDay[day] = (requestsByDay[day] ?? 0) + 1;
     }
 
     context.logger.progress(linesProcessed);
@@ -60,9 +63,9 @@ export class HttpAccessProcessor
    * Merges two VisitorStats by summing counts.
    */
   merge(existing: VisitorStats, incoming: VisitorStats): VisitorStats {
-    const requestsByDay = new Map(existing.requestsByDay);
-    for (const [day, count] of incoming.requestsByDay) {
-      requestsByDay.set(day, (requestsByDay.get(day) ?? 0) + count);
+    const requestsByDay = { ...existing.requestsByDay };
+    for (const [day, count] of Object.entries(incoming.requestsByDay)) {
+      requestsByDay[day] = (requestsByDay[day] ?? 0) + count;
     }
 
     return {

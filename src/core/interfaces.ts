@@ -1,5 +1,4 @@
-import type { ZodType } from "zod";
-import type { Result } from "./types.js";
+import type { Result } from "./result.js";
 import type { Logger } from "./logger.js";
 
 export interface ParseError {
@@ -9,13 +8,24 @@ export interface ParseError {
 }
 
 /**
+ * Wraps a successfully parsed record with its original raw line text.
+ * The raw line is used by the pipeline for cursor tracking (resume support)
+ * without requiring domain schemas to know about persistence.
+ */
+export interface ParsedRecord<TRecord> {
+  record: TRecord;
+  rawLine: string;
+}
+
+/**
  * Parses a log file into a stream of typed records.
  * `recordSchema` describes the output shape and is used by the registry
  * to validate compatibility with the downstream processor at registration time.
  */
 export interface Parser<TRecord> {
-  readonly recordSchema: ZodType;
-  parse(inputPath: string): AsyncIterable<Result<TRecord, ParseError>>;
+  parse(
+    inputPath: string,
+  ): AsyncIterable<Result<ParsedRecord<TRecord>, ParseError>>;
 }
 
 export interface ProcessorContext {
@@ -28,9 +38,8 @@ export interface ProcessorContext {
  * to validate compatibility with the upstream parser at registration time.
  */
 export interface Processor<TRecord, TResult> {
-  readonly inputSchema: ZodType;
   process(
-    records: AsyncIterable<Result<TRecord, ParseError>>,
+    records: AsyncIterable<Result<ParsedRecord<TRecord>, ParseError>>,
     context: ProcessorContext,
   ): Promise<TResult>;
   merge(existing: TResult, incoming: TResult): TResult;

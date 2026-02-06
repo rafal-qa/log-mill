@@ -1,24 +1,30 @@
-import { createReadStream } from "node:fs";
-import { createInterface } from "node:readline";
-import type { Parser, ParseError } from "../core/interfaces.js";
-import { ok, err } from "../core/types.js";
-import type { Result } from "../core/types.js";
+import type { Parser, ParseError, ParsedRecord } from "../core/interfaces.js";
+import { ok, err } from "../core/result.js";
+import type { Result } from "../core/result.js";
 import { httpAccessCombined } from "./formats/http-log-format.js";
-import { HttpAccessRecordSchema } from "../contracts/http-access-contract.js";
-import type { HttpAccessRecord } from "../contracts/http-access-contract.js";
+import { readLines } from "../core/read-lines.js";
+
+export interface HttpAccessRecord {
+  ip: string;
+  timestamp: Date;
+  method: string;
+  path: string;
+  protocol: string;
+  status: number;
+  size: number;
+  referer: string | null;
+  userAgent: string | null;
+}
 
 /**
  * HTTP access log parser for the Combined Log Format.
  * Streams records one line at a time via an AsyncIterable.
  */
 export class HttpAccessParser implements Parser<HttpAccessRecord> {
-  readonly recordSchema = HttpAccessRecordSchema;
-
   async *parse(
     inputPath: string,
-  ): AsyncIterable<Result<HttpAccessRecord, ParseError>> {
-    const stream = createReadStream(inputPath, { encoding: "utf-8" });
-    const rl = createInterface({ input: stream });
+  ): AsyncIterable<Result<ParsedRecord<HttpAccessRecord>, ParseError>> {
+    const rl = readLines(inputPath);
 
     let lineNumber = 0;
 
@@ -52,7 +58,7 @@ export class HttpAccessParser implements Parser<HttpAccessRecord> {
           referer: fields.referer,
           userAgent: fields.userAgent,
         };
-        yield ok(record);
+        yield ok<ParsedRecord<HttpAccessRecord>>({ record, rawLine: line });
       } catch (e) {
         yield err<ParseError>({
           line: lineNumber,

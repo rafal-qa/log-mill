@@ -4,7 +4,7 @@ import { dirname, join } from "node:path";
 import ejs from "ejs";
 import { readFileSync } from "node:fs";
 import type { Reporter } from "../../core/interfaces.js";
-import type { VisitorStats } from "../../contracts/http-access-contract.js";
+import type { VisitorStats } from "../../processors/http-access/processor.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const TEMPLATE_PATH = join(__dirname, "template.ejs");
