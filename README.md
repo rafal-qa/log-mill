@@ -33,16 +33,19 @@ Analyze log files and generate reports
 Options:
   -i, --input <path>       input log file path (plain text or .gz)
   -d, --output-dir <path>  output directory for reports and state
-  -m, --mode <mode>        analysis mode (e.g., http-access)
+  -m, --mode <mode>        analysis mode (available: http-access)
+  -c, --config <path>      config file path (for modes requiring it)
   -h, --help               display help for command
 ```
 
-Example: `node dist/index.js -i access.log -d out -m http-access`
+Try it yourself with the pre-configured example files:
+
+`node dist/index.js -i example/log/access.log -d out -m http-access -c example/config/http-access.config.yaml`
 
 ## Built-in analysis modes
 
 `http-access`
 
 - Parser: parse webserver log in _combined_ format
-- Processor: calculate number of entries per day
+- Processor: calculate number of entries per day and collect external referrers
 - Reporter: save report as HTML file

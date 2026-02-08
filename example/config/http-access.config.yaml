@@ -1,0 +1,9 @@
+# Domain name displayed in the report.
+domain: my-domain.test
+
+# Referrer URLs matching these patterns are treated as internal (same-site)
+# and excluded from referrer statistics.
+# Each entry is a regular expression.
+excludePatterns:
+  - ^https?://my-domain\.test
+  - ^https?://www\.my-domain\.test

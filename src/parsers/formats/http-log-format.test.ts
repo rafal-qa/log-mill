@@ -27,7 +27,7 @@ describe("httpAccessCombined - parses Apache combined log format", () => {
       protocol: "HTTP/1.1",
       status: "200",
       size: "2326",
-      referer: "http://example.com",
+      referrer: "http://example.com",
       userAgent: "Mozilla/5.0 (compatible)",
     });
   });
@@ -45,7 +45,7 @@ describe("httpAccessCombined - parses Apache combined log format", () => {
       '10.0.0.1 - - [01/Jan/2024:00:00:00 +0000] "GET / HTTP/1.1" 200 512 "" ""';
     const result = parse(httpAccessCombined, line);
 
-    expect(result?.referer).toBe("");
+    expect(result?.referrer).toBe("");
     expect(result?.userAgent).toBe("");
   });
 

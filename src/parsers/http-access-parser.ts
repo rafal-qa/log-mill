@@ -12,7 +12,7 @@ export interface HttpAccessRecord {
   protocol: string;
   status: number;
   size: number;
-  referer: string | null;
+  referrer: string | null;
   userAgent: string | null;
 }
 
@@ -55,7 +55,7 @@ export class HttpAccessParser implements Parser<HttpAccessRecord> {
           protocol: fields.protocol,
           status: Number(fields.status),
           size: fields.size === "-" ? 0 : Number(fields.size),
-          referer: fields.referer,
+          referrer: fields.referrer,
           userAgent: fields.userAgent,
         };
         yield ok<ParsedRecord<HttpAccessRecord>>({ record, rawLine: line });

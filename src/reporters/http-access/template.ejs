@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HTTP Access Report</title>
+  <title>HTTP Access Report - <%= domain %></title>
   <style>
     body {
       font-family: sans-serif;
@@ -27,7 +27,7 @@
   </style>
 </head>
 <body>
-  <h1>HTTP Access Report</h1>
+  <h1>HTTP Access Report - <%= domain %></h1>
 
   <p>Total requests: <strong><%= stats.totalRequests %></strong></p>
   <p>Parse errors: <strong><%= stats.parseErrors %></strong></p>
@@ -49,5 +49,16 @@
       <% } %>
     </tbody>
   </table>
+
+  <h2>External Referrers</h2>
+  <% if (stats.referrers.length === 0) { %>
+    <p>No external referrers found.</p>
+  <% } else { %>
+    <ul>
+      <% for (const referrer of stats.referrers) { %>
+        <li><%= referrer %></li>
+      <% } %>
+    </ul>
+  <% } %>
 </body>
 </html>

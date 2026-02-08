@@ -3,9 +3,12 @@ import type {
   ParseError,
   ParsedRecord,
   ProcessorContext,
+  Configurable,
+  ConfigData,
 } from "../../core/interfaces.js";
 import type { Result } from "../../core/result.js";
 import type { HttpAccessRecord } from "../../parsers/http-access-parser.js";
+import { z } from "zod";
 
 const PROGRESS_INTERVAL = 10_000;
 
@@ -13,21 +16,33 @@ export interface VisitorStats {
   totalRequests: number;
   parseErrors: number;
   requestsByDay: Record<string, number>;
+  referrers: string[];
 }
 
-/**
- * Formats a Date as YYYY-MM-DD in UTC.
- */
 function toDateKey(date: Date): string {
   return date.toISOString().slice(0, 10);
 }
 
-/**
- * Aggregates HTTP access records into per-day request counts.
- */
 export class HttpAccessProcessor
-  implements Processor<HttpAccessRecord, VisitorStats>
+  implements Processor<HttpAccessRecord, VisitorStats>, Configurable
 {
+  private excludeRegexes: RegExp[] = [];
+
+  async configure(config: ConfigData): Promise<void> {
+    const schema = z.object({
+      domain: z.string(),
+      excludePatterns: z.array(z.string()),
+    });
+    const validated = schema.parse(config.value);
+    this.excludeRegexes = validated.excludePatterns.map(
+      (pattern) => new RegExp(pattern),
+    );
+  }
+
+  private isInternalReferrer(referrer: string): boolean {
+    return this.excludeRegexes.some((regex) => regex.test(referrer));
+  }
+
   async process(
     records: AsyncIterable<Result<ParsedRecord<HttpAccessRecord>, ParseError>>,
     context: ProcessorContext,
@@ -36,6 +51,7 @@ export class HttpAccessProcessor
     let parseErrors = 0;
     let linesProcessed = 0;
     const requestsByDay: Record<string, number> = {};
+    const referrers: string[] = [];
 
     for await (const result of records) {
       linesProcessed++;
@@ -52,16 +68,19 @@ export class HttpAccessProcessor
       totalRequests++;
       const day = toDateKey(result.value.record.timestamp);
       requestsByDay[day] = (requestsByDay[day] ?? 0) + 1;
+
+      // Track external referrers (skip empty and internal)
+      const referrer = result.value.record.referrer;
+      if (referrer && referrer !== "-" && !this.isInternalReferrer(referrer)) {
+        referrers.push(referrer);
+      }
     }
 
     context.logger.progress(linesProcessed);
 
-    return { totalRequests, parseErrors, requestsByDay };
+    return { totalRequests, parseErrors, requestsByDay, referrers };
   }
 
-  /**
-   * Merges two VisitorStats by summing counts.
-   */
   merge(existing: VisitorStats, incoming: VisitorStats): VisitorStats {
     const requestsByDay = { ...existing.requestsByDay };
     for (const [day, count] of Object.entries(incoming.requestsByDay)) {
@@ -72,6 +91,7 @@ export class HttpAccessProcessor
       totalRequests: existing.totalRequests + incoming.totalRequests,
       parseErrors: existing.parseErrors + incoming.parseErrors,
       requestsByDay,
+      referrers: [...existing.referrers, ...incoming.referrers],
     };
   }
 }

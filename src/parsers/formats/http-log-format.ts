@@ -59,7 +59,7 @@ interface HttpAccessCombinedFields {
   protocol: string;
   status: string;
   size: string;
-  referer: string;
+  referrer: string;
   userAgent: string;
 }
 
@@ -76,7 +76,7 @@ export const httpAccessCombined: LogFormat<HttpAccessCombinedFields> = {
     protocol: match[5] as string,
     status: match[6] as string,
     size: match[7] as string,
-    referer: match[8] as string,
+    referrer: match[8] as string,
     userAgent: match[9] as string,
   }),
 };
