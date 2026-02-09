@@ -7,7 +7,7 @@ _Log mill - a tool for processing raw logs into clean, usable output._
 ## Purpose
 
 A do-it-yourself scaffold for building custom log analysis tools.
-It provides the architecture, patterns, and built-in features like incremental processing and state persistence.
+It provides the architecture, patterns, and built-in features like incremental processing with state persistence.
 You can reuse already developed components or implement specific logic for your use case.
 
 ## About
@@ -40,7 +40,38 @@ Options:
 
 Try it yourself with the pre-configured example files:
 
-`node dist/index.js -i example/log/access.log -d out -m http-access -c example/config/http-access.config.yaml`
+`node dist/index.js -i example/log/access.log -d output -m http-access -c example/config/http-access.config.yaml`
+
+## Use cases
+
+### Update report periodically with new data
+
+This is the most basic use case. Log lines processed in previous run are skipped and report updated with new data.
+Just point `log-mill` to a current log file and run as frequent as you wish.
+
+If you want to automate it and logs are rotated, make sure to run `log-mill` before rotating.
+
+### Analyze historical rotated logs
+
+**Scenario**
+
+- Logs are rotated, we have files like `access.log access.log.1 access.log.2.gz ... access.log.10.gz`
+- We want to generate a report combining data from all historical files, not only from current log.
+- Plain text and compressed files are mixed.
+
+**Solution**
+
+- Run `log-mill` for every log file separately, starting from the oldest, keeping the same `output-dir`.
+- Incremental processing also works with multiple files, newer data is added to previous data.
+- Compressed files are handled out-of-the-box (only gzip).
+
+Example Bash script:
+
+```bash
+ls -tr "/var/log/apache/"access.log* | while IFS= read -r file; do
+    node dist/index.js -i "$file" -d output -m http-access -c my-website.config.yaml
+done
+```
 
 ## Built-in analysis modes
 
@@ -49,3 +80,23 @@ Try it yourself with the pre-configured example files:
 - Parser: parse webserver log in _combined_ format
 - Processor: calculate number of entries per day and collect external referrers
 - Reporter: save report as HTML file
+
+## Architectural trade-offs
+
+### MessagePack vs. JSON for state persistence
+
+State is persisted for incremental processing and stored in binary MessagePack format.
+
+This format was chosen over JSON because `Map` types can't be serialized to JSON, but they're a
+natural and efficient type for operating on data. MessagePack supports Maps natively.
+
+Even though native JSON serialization is faster and easier to debug, allowing Maps to be used freely (without custom
+logic for converting deep and large structures) justifies this decision.
+
+## Debugging
+
+### Inspecting state
+
+To inspect state content, use the provided script to convert binary MessagePack to JSON:
+
+`node scripts/msgpack-to-json.mjs output/http-access/state/state.msgpack`

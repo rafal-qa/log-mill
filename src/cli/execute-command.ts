@@ -51,9 +51,5 @@ export async function executeCommand(
     logger,
   });
 
-  // Final newline after progress output
-  console.error("");
-
-  logger.info(`Report generated in: ${outputDir}/reports/`);
   process.exit(0);
 }

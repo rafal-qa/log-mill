@@ -27,9 +27,10 @@ export class HttpAccessHtmlReporter
     this.domain = validated.domain;
   }
 
-  async report(data: VisitorStats, outputPath: string): Promise<void> {
+  async report(data: VisitorStats, reportsDir: string): Promise<void> {
+    const reportPath = join(reportsDir, "index.html");
     const template = readFileSync(TEMPLATE_PATH, "utf-8");
     const html = ejs.render(template, { stats: data, domain: this.domain });
-    await writeFile(outputPath, html, "utf-8");
+    await writeFile(reportPath, html, "utf-8");
   }
 }

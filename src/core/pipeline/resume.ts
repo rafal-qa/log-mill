@@ -20,6 +20,11 @@ export async function* skipFirstN<T>(
   }
 }
 
+interface TrackCursorState {
+  cursor: FileCursor;
+  count: number;
+}
+
 /**
  * Wraps a stream of parsed records, tracking the cursor position as items
  * flow through. `skipLines` is the number of lines already skipped (from a
@@ -32,7 +37,7 @@ export function trackCursor<TRecord>(
   skipLines: number,
 ): {
   records: AsyncIterable<Result<ParsedRecord<TRecord>, ParseError>>;
-  state: { cursor: FileCursor; count: number };
+  state: TrackCursorState;
 } {
   const state = {
     cursor: { linesProcessed: skipLines, lastLine: "" },
