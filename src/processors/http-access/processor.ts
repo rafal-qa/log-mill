@@ -16,14 +16,14 @@ const PROGRESS_INTERVAL = 10_000;
 interface ReferrerDomain {
   domain: string;
   totalVisits: number;
-  urls: Map<string, number>;
+  urls: Record<string, number>;
 }
 
 export interface VisitorStats {
   totalRequests: number;
   parseErrors: number;
-  requestsByDay: Map<string, number>;
-  referrers: Map<string, ReferrerDomain>;
+  requestsByDay: Record<string, number>;
+  referrers: Record<string, ReferrerDomain>;
 }
 
 function toDateKey(date: Date): string {
@@ -37,7 +37,6 @@ export class HttpAccessProcessor
 
   async configure(config: ConfigData): Promise<void> {
     const schema = z.object({
-      domain: z.string(),
       excludePatterns: z.array(z.string()),
     });
     const validated = schema.parse(config.value);
@@ -57,8 +56,8 @@ export class HttpAccessProcessor
     let totalRequests = 0;
     let parseErrors = 0;
     let linesProcessed = 0;
-    const requestsByDay = new Map<string, number>();
-    const referrers = new Map<string, ReferrerDomain>();
+    const requestsByDay: Record<string, number> = {};
+    const referrers: Record<string, ReferrerDomain> = {};
 
     for await (const result of records) {
       linesProcessed++;
@@ -74,57 +73,54 @@ export class HttpAccessProcessor
 
       totalRequests++;
       const day = toDateKey(result.value.record.timestamp);
-      requestsByDay.set(day, (requestsByDay.get(day) ?? 0) + 1);
+      requestsByDay[day] = (requestsByDay[day] ?? 0) + 1;
 
       // Track external referrers (skip empty and internal)
       const referrer = result.value.record.referrer;
       if (referrer && referrer !== "-" && !this.isInternalReferrer(referrer)) {
         const domain = extractDomain(referrer);
 
-        let domainData = referrers.get(domain);
+        let domainData = referrers[domain];
         if (!domainData) {
           domainData = {
             domain,
             totalVisits: 0,
-            urls: new Map(),
+            urls: {},
           };
-          referrers.set(domain, domainData);
+          referrers[domain] = domainData;
         }
 
         domainData.totalVisits++;
-        domainData.urls.set(referrer, (domainData.urls.get(referrer) ?? 0) + 1);
+        domainData.urls[referrer] = (domainData.urls[referrer] ?? 0) + 1;
       }
     }
 
     context.logger.progress(linesProcessed);
-    console.error(""); // Final newline after progress output
+    context.logger.progressComplete();
 
     return { totalRequests, parseErrors, requestsByDay, referrers };
   }
 
   merge(existing: VisitorStats, incoming: VisitorStats): VisitorStats {
-    const requestsByDay = new Map(existing.requestsByDay);
-    for (const [day, count] of incoming.requestsByDay) {
-      requestsByDay.set(day, (requestsByDay.get(day) ?? 0) + count);
+    const requestsByDay = { ...existing.requestsByDay };
+    for (const [day, count] of Object.entries(incoming.requestsByDay)) {
+      requestsByDay[day] = (requestsByDay[day] ?? 0) + count;
     }
 
-    const referrers = new Map(existing.referrers);
-    for (const [domain, incomingDomain] of incoming.referrers) {
-      const existingDomain = referrers.get(domain);
+    const referrers = { ...existing.referrers };
+    for (const [domain, incomingDomain] of Object.entries(incoming.referrers)) {
+      const existingDomain = referrers[domain];
 
       if (!existingDomain) {
-        referrers.set(domain, {
+        referrers[domain] = {
           domain: incomingDomain.domain,
           totalVisits: incomingDomain.totalVisits,
-          urls: new Map(incomingDomain.urls),
-        });
+          urls: { ...incomingDomain.urls },
+        };
       } else {
         existingDomain.totalVisits += incomingDomain.totalVisits;
-        for (const [url, count] of incomingDomain.urls) {
-          existingDomain.urls.set(
-            url,
-            (existingDomain.urls.get(url) ?? 0) + count,
-          );
+        for (const [url, count] of Object.entries(incomingDomain.urls)) {
+          existingDomain.urls[url] = (existingDomain.urls[url] ?? 0) + count;
         }
       }
     }

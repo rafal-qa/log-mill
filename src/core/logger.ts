@@ -2,6 +2,7 @@ export interface Logger {
   info(message: string): void;
   error(message: string): void;
   progress(linesProcessed: number): void;
+  progressComplete(): void;
 }
 
 export class ConsoleLogger implements Logger {
@@ -19,5 +20,9 @@ export class ConsoleLogger implements Logger {
     process.stderr.write(
       `\rProcessing... ${linesProcessed.toLocaleString()} lines`,
     );
+  }
+
+  progressComplete(): void {
+    process.stderr.write("\n");
   }
 }

@@ -26,13 +26,13 @@ export async function executeCommand(
     components.reporter,
   ]) {
     if (isConfigurable(component)) {
-      const configResult = await loadConfig(configPath);
-      if (!configResult.success) {
-        logger.error(configResult.error.message);
+      const loadConfigResult = await loadConfig(configPath);
+      if (!loadConfigResult.success) {
+        logger.error(loadConfigResult.error.message);
         process.exit(1);
       }
 
-      await component.configure(configResult.value);
+      await component.configure(loadConfigResult.value);
     }
   }
 

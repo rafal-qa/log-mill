@@ -1,16 +1,9 @@
 import { readFile, writeFile, rename, access } from "node:fs/promises";
 import { join } from "node:path";
-import { Packr } from "msgpackr";
 import type { FileCursor } from "./interfaces.js";
 
-const STATE_FILE = "state.msgpack";
-const STATE_TEMP_FILE = "state.tmp.msgpack";
-
-// Configure msgpackr to preserve Maps
-const packr = new Packr({
-  moreTypes: true, // Enable Map/Set/Error serialization
-  mapsAsObjects: false, // Decode maps as JavaScript Maps, not objects
-});
+const STATE_FILE = "state.json";
+const STATE_TEMP_FILE = "state.tmp.json";
 
 interface ProcessingState {
   lastUpdated: string;
@@ -25,9 +18,8 @@ interface ProcessingState {
  * operation is atomic on POSIX systems, ensuring the file is either fully written
  * or not written at all — no partial/corrupted state is possible.
  *
- * This matters because state files can be large and the write operation may take
- * time. If the process crashes, is killed (Ctrl+C), or the system loses power
- * during the write, the original file remains intact and usable.
+ * This matters because if the process crashes or is killed (Ctrl+C) during the write,
+ * the original file remains intact and usable.
  */
 export async function saveStateAtomic(
   dataDir: string,
@@ -42,7 +34,7 @@ export async function saveStateAtomic(
 
   const filePath = join(dataDir, STATE_FILE);
   const tmpPath = join(dataDir, STATE_TEMP_FILE);
-  await writeFile(tmpPath, packr.pack(state));
+  await writeFile(tmpPath, JSON.stringify(state, null, 1));
   await rename(tmpPath, filePath);
 }
 
@@ -57,6 +49,6 @@ export async function loadState(
     return null;
   }
 
-  const content = await readFile(filePath);
-  return packr.unpack(content);
+  const content = await readFile(filePath, "utf-8");
+  return JSON.parse(content) as ProcessingState;
 }

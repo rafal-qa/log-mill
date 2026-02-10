@@ -78,7 +78,7 @@ async function readNthLine(
     }
   }
 
-  return null; // File has fewer than N lines
+  return null;
 }
 
 /**
@@ -96,8 +96,8 @@ export async function determineSkipLines(
   const lineAtCursor = await readNthLine(inputPath, cursor.linesProcessed);
 
   if (lineAtCursor === cursor.lastLine) {
-    return cursor.linesProcessed; // Safe to skip
+    return cursor.linesProcessed;
   }
 
-  return 0; // File changed, process from beginning
+  return 0;
 }

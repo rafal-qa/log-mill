@@ -25,10 +25,10 @@ describe("saveStateAtomic + loadState - round-trip persistence", () => {
     const data = {
       totalRequests: 42,
       uniqueVisitors: 10,
-      requestsByDay: new Map([
-        ["2026-02-01", 15],
-        ["2026-02-02", 27],
-      ]),
+      requestsByDay: {
+        "2026-02-01": 15,
+        "2026-02-02": 27,
+      },
     };
 
     await saveStateAtomic(testDir, cursor, data);
@@ -41,7 +41,7 @@ describe("saveStateAtomic + loadState - round-trip persistence", () => {
     expect(loaded.lastUpdated).toMatch(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}/);
   });
 
-  it("handles nested objects and Maps in data field", async () => {
+  it("handles nested objects in data field", async () => {
     const cursor: FileCursor = {
       linesProcessed: 50,
       lastLine: "test line",
@@ -55,7 +55,7 @@ describe("saveStateAtomic + loadState - round-trip persistence", () => {
           },
         },
       },
-      counts: new Map([["key1", 10]]),
+      counts: { key1: 10 },
     };
 
     await saveStateAtomic(testDir, cursor, data);

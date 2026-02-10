@@ -28,7 +28,14 @@ export interface ProcessorContext {
   logger: Logger;
 }
 
-/** Processes a stream of parsed records into an aggregated result */
+/**
+ * Processes a stream of parsed records into an aggregated result.
+ *
+ * **IMPORTANT: TResult must be JSON-serializable**
+ * - Use plain objects, arrays, strings, numbers, booleans, null
+ * - Use Record instead of Map
+ * - For dates, store as ISO strings and parse when needed
+ */
 export interface Processor<TRecord, TResult> {
   process(
     records: AsyncIterable<Result<ParsedRecord<TRecord>, ParseError>>,

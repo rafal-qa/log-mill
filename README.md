@@ -75,28 +75,8 @@ done
 
 ## Built-in analysis modes
 
-`http-access`
+### `http-access`
 
 - Parser: parse webserver log in _combined_ format
 - Processor: calculate number of entries per day and collect external referrers
 - Reporter: save report as HTML file
-
-## Architectural trade-offs
-
-### MessagePack vs. JSON for state persistence
-
-State is persisted for incremental processing and stored in binary MessagePack format.
-
-This format was chosen over JSON because `Map` types can't be serialized to JSON, but they're a
-natural and efficient type for operating on data. MessagePack supports Maps natively.
-
-Even though native JSON serialization is faster and easier to debug, allowing Maps to be used freely (without custom
-logic for converting deep and large structures) justifies this decision.
-
-## Debugging
-
-### Inspecting state
-
-To inspect state content, use the provided script to convert binary MessagePack to JSON:
-
-`node scripts/msgpack-to-json.mjs output/http-access/state/state.msgpack`
