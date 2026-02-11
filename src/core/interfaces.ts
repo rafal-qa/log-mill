@@ -62,8 +62,3 @@ export class ConfigData {
 export interface Configurable {
   configure(config: ConfigData): Promise<void>;
 }
-
-/** Type guard to check if a component implements the Configurable interface */
-export function isConfigurable(obj: unknown): obj is Configurable {
-  return typeof obj === "object" && obj !== null && "configure" in obj;
-}

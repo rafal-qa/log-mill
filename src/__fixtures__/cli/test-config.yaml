@@ -1,0 +1,4 @@
+mode: test
+options:
+  enabled: true
+  threshold: 42

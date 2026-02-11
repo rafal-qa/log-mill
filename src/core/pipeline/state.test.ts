@@ -35,7 +35,7 @@ describe("saveStateAtomic + loadState - round-trip persistence", () => {
 
     const loaded = await loadState(testDir);
 
-    assert(loaded);
+    assert.ok(loaded);
     expect(loaded.cursor).toEqual(cursor);
     expect(loaded.data).toEqual(data);
     expect(loaded.lastUpdated).toMatch(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}/);
@@ -62,7 +62,7 @@ describe("saveStateAtomic + loadState - round-trip persistence", () => {
 
     const loaded = await loadState(testDir);
 
-    assert(loaded);
+    assert.ok(loaded);
     expect(loaded.data).toEqual(data);
   });
 

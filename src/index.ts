@@ -3,7 +3,7 @@ import { registry } from "./core/registry.js";
 import { HttpAccessParser } from "./parsers/http-access-parser.js";
 import { HttpAccessProcessor } from "./processors/http-access/processor.js";
 import { HttpAccessHtmlReporter } from "./reporters/http-access/html-reporter.js";
-import { executeCommand } from "./cli/execute-command.js";
+import { execute } from "./cli/execute.js";
 
 registry.registerMode("http-access", {
   parser: new HttpAccessParser(),
@@ -31,7 +31,7 @@ program
   )
   .option("-c, --config <path>", "config file path (for modes requiring it)")
   .action(async (options) => {
-    await executeCommand(
+    await execute(
       options.mode,
       options.input,
       options.outputDir,

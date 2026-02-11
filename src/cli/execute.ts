@@ -1,11 +1,10 @@
 import { registry } from "../core/registry.js";
-import { isConfigurable } from "../core/interfaces.js";
 import { ConsoleLogger } from "../core/logger.js";
 import { runPipeline } from "../core/pipeline/pipeline.js";
 import { access } from "node:fs/promises";
-import { loadConfig } from "./load-config.js";
+import { configure } from "./configure.js";
 
-export async function executeCommand(
+export async function execute(
   modeName: string,
   inputPath: string,
   outputDir: string,
@@ -25,14 +24,10 @@ export async function executeCommand(
     components.processor,
     components.reporter,
   ]) {
-    if (isConfigurable(component)) {
-      const loadConfigResult = await loadConfig(configPath);
-      if (!loadConfigResult.success) {
-        logger.error(loadConfigResult.error.message);
-        process.exit(1);
-      }
-
-      await component.configure(loadConfigResult.value);
+    const configureResult = await configure(component, configPath);
+    if (!configureResult.success) {
+      logger.error(configureResult.error.message);
+      process.exit(1);
     }
   }
 
