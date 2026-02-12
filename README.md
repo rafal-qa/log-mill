@@ -40,7 +40,9 @@ Options:
 
 Try it yourself with the pre-configured example files:
 
-`node dist/index.js -i example/log/access.log -d output -m http-access -c example/config/http-access.config.yaml`
+```bash
+node dist/index.js -i example/log/access.log -d output -m http-access -c example/config/http-access.config.yaml
+```
 
 ## Use cases
 
@@ -80,3 +82,41 @@ done
 - Parser: parse webserver log in _combined_ format
 - Processor: calculate number of entries per day and collect external referrers
 - Reporter: save report as HTML file
+
+## Architecture
+
+### Overview
+
+- Each analysis mode is composed of 3 component types: `Parser`, `Processor`, `Reporter` wired together in `index.ts`.
+- The same component implementation can be used in multiple modes, as long as they are compatible.
+  - `Parser` returns the same data type as `Processor` accepts.
+  - `Processor` returns the same data type as `Reporter` accepts.
+- Components requiring additional configuration implement the `Configurable` interface. Method `configure` which is
+  **automatically called**, uses `ConfigData` containing data from the parsed configuration file. This is a YAML file
+  provided as a CLI parameter. If several components need configuration, they use the same file.
+
+### Adding new mode and components
+
+To add an `example` mode with a new log format, following files are affected:
+
+```
+src/
+├── index.ts                           # Register mode
+├── parsers/
+│   ├── formats/
+│   │   └── new-log-format.ts          # Implement LogFormat
+│   └── example-parser.ts              # Build ParsedRecord<ExampleRecord>
+├── processors/
+│   └── example/
+│       └── processor.ts               # Process ParsedRecord<ExampleRecord> → ExampleData
+│                                      # Merge with previous state (incremental)
+└── reporters/
+    └── example/
+        └── reporter.ts                # Generate report from ExampleData
+```
+
+New data types:
+
+- `ExampleRecord` - Data extracted from a single log line.
+- `ExampleData` - Aggregated and calculated data from multiple log lines. **Must be JSON-serializable** because it is
+  persisted in JSON format between runs.
