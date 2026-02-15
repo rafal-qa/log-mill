@@ -21,6 +21,21 @@ A command-line TypeScript/Node.js application built from composable components:
 Components can be combined freely as long as data formats are compatible.
 For example, reuse an existing parser and processor with a new PDF reporter instead of the built-in HTML reporter.
 
+## Features
+
+### Built into the architecture
+
+- Incremental processing with resume support
+- Streaming (handles large files efficiently)
+- Atomic state persistence (crash-safe)
+- Compressed file support (`.gz`)
+- Optional YAML configuration
+
+### Included log analyzers
+
+- HTTP server log analysis (referring websites report)
+- Syslog analysis (application activity over time)
+
 ## Options
 
 Show options: `node dist/index.js --help`
@@ -33,15 +48,21 @@ Analyze log files and generate reports
 Options:
   -i, --input <path>       input log file path (plain text or .gz)
   -d, --output-dir <path>  output directory for reports and state
-  -m, --mode <mode>        analysis mode (available: http-access)
+  -m, --mode <mode>        analysis mode (http-access, syslog-apps)
   -c, --config <path>      config file path (for modes requiring it)
   -h, --help               display help for command
 ```
 
-Try it yourself with the pre-configured example files:
+## Try it yourself
+
+Use the pre-configured example files
 
 ```bash
 node dist/index.js -i example/log/access.log -d output -m http-access -c example/config/http-access.config.yaml
+```
+
+```bash
+node dist/index.js -i example/log/syslog.log -d output -m syslog-apps
 ```
 
 ## Use cases
@@ -82,6 +103,12 @@ done
 - Parser: parse webserver log in _combined_ format
 - Processor: calculate number of entries per day and collect external referrers
 - Reporter: save report as HTML file
+
+### `syslog-apps`
+
+- Parser: parse system logs in Syslog format
+- Processor: aggregate number of log entries per application and per day
+- Reporter: save report as HTML file with interactive charts per application
 
 ## Architecture
 

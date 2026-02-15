@@ -11,7 +11,7 @@ const __dirname = fileURLToPath(new URL(".", import.meta.url));
 const SRC = join(__dirname, "..", "src");
 const DIST = join(__dirname, "..", "dist");
 
-const PATTERNS = ["**/*.ejs"];
+const PATTERNS = ["**/*.ejs", "**/assets/*.js"];
 
 for (const pattern of PATTERNS) {
   for await (const relative of glob(pattern, { cwd: SRC })) {

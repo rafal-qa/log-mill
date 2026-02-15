@@ -1,0 +1,574 @@
+2026-01-25T04:26:23.000000+01:00 demo-node sshd[42105]: Accepted publickey for deploy from 29.12.140.63 port 15652 ssh2: RSA SHA256:83197857
+2026-01-25T16:26:24.007919+01:00 demo-node sshd[5897]: Failed password for invalid user test from 152.216.16.8 port 7164 ssh2
+2026-01-25T01:46:33.000000+01:00 demo-node systemd[36981]: Stopped ssh.service.
+2026-01-25T06:34:33.007919+01:00 demo-node systemd[46162]: Started postgresql.service.
+2026-01-25T11:22:33.015838+01:00 demo-node systemd[29639]: Started postgresql.service.
+2026-01-25T16:10:33.023757+01:00 demo-node systemd[625]: networking.service: Main process exited, code=exited, status=127/FAILURE
+2026-01-25T20:58:33.031676+01:00 demo-node systemd[27896]: Started cron.service.
+2026-01-25T00:40:59.000000+01:00 demo-node CRON[14310]: (munin) CMD (/usr/bin/logrotate /etc/logrotate.conf)
+2026-01-25T02:31:45.007919+01:00 demo-node CRON[6278]: (backup) CMD (/usr/bin/logrotate /etc/logrotate.conf)
+2026-01-25T04:22:31.015838+01:00 demo-node CRON[23726]: (munin) CMD (/usr/bin/find /var/tmp -type f -mtime +7 -delete)
+2026-01-25T06:13:17.023757+01:00 demo-node CRON[3047]: (backup) CMD (/usr/bin/logrotate /etc/logrotate.conf)
+2026-01-25T08:04:03.031676+01:00 demo-node CRON[25007]: (root) CMD (/usr/bin/find /var/tmp -type f -mtime +7 -delete)
+2026-01-25T09:54:49.039595+01:00 demo-node CRON[41398]: (sysadmin) CMD (/usr/bin/certbot renew --quiet)
+2026-01-25T11:45:36.047514+01:00 demo-node CRON[38037]: (www-data) CMD (/usr/bin/logrotate /etc/logrotate.conf)
+2026-01-25T13:36:22.055433+01:00 demo-node CRON[3203]: (www-data) CMD (/usr/bin/find /var/tmp -type f -mtime +7 -delete)
+2026-01-25T15:27:08.063352+01:00 demo-node CRON[5429]: (www-data) CMD (/usr/bin/logrotate /etc/logrotate.conf)
+2026-01-25T17:17:54.071271+01:00 demo-node CRON[25111]: (munin) CMD (/usr/bin/systemctl restart nginx.service)
+2026-01-25T19:08:40.079190+01:00 demo-node CRON[41860]: (munin) CMD (/usr/local/bin/backup --incremental)
+2026-01-25T20:59:26.087109+01:00 demo-node CRON[24460]: (munin) CMD (/usr/bin/apt-get -qq update)
+2026-01-25T22:50:12.095028+01:00 demo-node CRON[44120]: (munin) CMD (/usr/bin/logrotate /etc/logrotate.conf)
+2026-01-25T02:57:36.000000+01:00 demo-node nginx[40120]: connect() failed (111: Connection refused) while connecting to upstream, client: 163.87.125.42, server: api.example.test, request: "GET /health HTTP/1.1"
+2026-01-25T10:57:36.007919+01:00 demo-node nginx[42143]: SSL_do_handshake() failed (SSL: error:944151:SSL routines:tls_process_client_hello:unknown) while SSL handshaking, client: 177.112.166.216, server: example.test
+2026-01-25T18:57:36.015838+01:00 demo-node nginx[20873]: connect() failed (111: Connection refused) while connecting to upstream, client: 103.137.33.55, server: static.example.test, request: "GET /robots.txt HTTP/1.1"
+2026-01-25T08:52:47.000000+01:00 demo-node kernel: snd_hda_intel: codec init failed with error -2
+2026-01-26T04:26:23.000000+01:00 demo-node sshd[42329]: Failed password for ubuntu from 118.73.135.36 port 17186 ssh2
+2026-01-26T16:26:24.007919+01:00 demo-node sshd[38442]: Failed password for invalid user user from 103.185.112.36 port 34416 ssh2
+2026-01-26T01:46:33.000000+01:00 demo-node systemd[7385]: Stopped ssh.service.
+2026-01-26T06:34:33.007919+01:00 demo-node systemd[44796]: Stopped docker.service.
+2026-01-26T11:22:33.015838+01:00 demo-node systemd[25416]: Stopped docker.service.
+2026-01-26T16:10:33.023757+01:00 demo-node systemd[30874]: Started postgresql.service.
+2026-01-26T20:58:33.031676+01:00 demo-node systemd[36456]: networking.service: Scheduled restart job, restart counter is 6.
+2026-01-26T00:40:59.000000+01:00 demo-node CRON[47433]: (root) CMD (/usr/bin/find /var/tmp -type f -mtime +7 -delete)
+2026-01-26T02:31:45.007919+01:00 demo-node CRON[42206]: (munin) CMD (/usr/bin/logrotate /etc/logrotate.conf)
+2026-01-26T04:22:31.015838+01:00 demo-node CRON[19434]: (backup) CMD (/usr/local/bin/backup --incremental)
+2026-01-26T06:13:17.023757+01:00 demo-node CRON[29935]: (root) CMD (/usr/bin/find /var/tmp -type f -mtime +7 -delete)
+2026-01-26T08:04:03.031676+01:00 demo-node CRON[33006]: (www-data) CMD (/usr/bin/logrotate /etc/logrotate.conf)
+2026-01-26T09:54:49.039595+01:00 demo-node CRON[41179]: (munin) CMD (/usr/bin/apt-get -qq update)
+2026-01-26T11:45:36.047514+01:00 demo-node CRON[10216]: (munin) CMD (/usr/local/bin/backup --incremental)
+2026-01-26T13:36:22.055433+01:00 demo-node CRON[35548]: (sysadmin) CMD (run-parts --report /etc/cron.hourly)
+2026-01-26T15:27:08.063352+01:00 demo-node CRON[39452]: (munin) CMD (/usr/bin/systemctl restart nginx.service)
+2026-01-26T17:17:54.071271+01:00 demo-node CRON[1476]: (root) CMD (/usr/bin/certbot renew --quiet)
+2026-01-26T19:08:40.079190+01:00 demo-node CRON[20353]: (www-data) CMD (run-parts --report /etc/cron.hourly)
+2026-01-26T20:59:26.087109+01:00 demo-node CRON[15985]: (sysadmin) CMD (/usr/bin/logrotate /etc/logrotate.conf)
+2026-01-26T22:50:12.095028+01:00 demo-node CRON[5813]: (backup) CMD (/usr/bin/logrotate /etc/logrotate.conf)
+2026-01-26T02:57:36.000000+01:00 demo-node nginx[35111]: connect() failed (111: Connection refused) while connecting to upstream, client: 197.64.65.169, server: api.example.test, request: "GET /assets/app.js HTTP/1.1"
+2026-01-26T10:57:36.007919+01:00 demo-node nginx[34781]: client sent too large body: 2735954 bytes, client: 156.216.108.238, server: static.example.test, request: "POST /wp-login.php HTTP/1.1"
+2026-01-26T18:57:36.015838+01:00 demo-node nginx[46923]: connect() failed (111: Connection refused) while connecting to upstream, client: 80.204.191.113, server: static.example.test, request: "GET /health HTTP/1.1"
+2026-01-26T08:52:47.000000+01:00 demo-node kernel: blk_update_request: I/O error, dev nvme0n1, sector 5682134
+2026-01-27T04:26:23.000000+01:00 demo-node sshd[1578]: Failed password for invalid user admin from 151.117.112.2 port 5676 ssh2
+2026-01-27T16:26:24.007919+01:00 demo-node sshd[21854]: Failed password for test from 19.121.142.172 port 32836 ssh2
+2026-01-27T01:46:33.000000+01:00 demo-node systemd[16125]: Stopped networking.service.
+2026-01-27T06:34:33.007919+01:00 demo-node systemd[26877]: Started ssh.service.
+2026-01-27T11:22:33.015838+01:00 demo-node systemd[43387]: Started docker.service.
+2026-01-27T16:10:33.023757+01:00 demo-node systemd[27141]: docker.service: Main process exited, code=exited, status=1/FAILURE
+2026-01-27T20:58:33.031676+01:00 demo-node systemd[44329]: systemd-logind.service: Scheduled restart job, restart counter is 1.
+2026-01-27T00:40:59.000000+01:00 demo-node CRON[4172]: (backup) CMD (/usr/bin/certbot renew --quiet)
+2026-01-27T02:31:45.007919+01:00 demo-node CRON[7361]: (www-data) CMD (/usr/bin/apt-get -qq update)
+2026-01-27T04:22:31.015838+01:00 demo-node CRON[12665]: (sysadmin) CMD (/usr/bin/systemctl restart nginx.service)
+2026-01-27T06:13:17.023757+01:00 demo-node CRON[9386]: (backup) CMD (/usr/local/bin/backup --incremental)
+2026-01-27T08:04:03.031676+01:00 demo-node CRON[18454]: (backup) CMD (/usr/bin/apt-get -qq update)
+2026-01-27T09:54:49.039595+01:00 demo-node CRON[5140]: (backup) CMD (/usr/bin/logrotate /etc/logrotate.conf)
+2026-01-27T11:45:36.047514+01:00 demo-node CRON[3515]: (sysadmin) CMD (run-parts --report /etc/cron.hourly)
+2026-01-27T13:36:22.055433+01:00 demo-node CRON[6312]: (www-data) CMD (/usr/local/bin/backup --incremental)
+2026-01-27T15:27:08.063352+01:00 demo-node CRON[26834]: (backup) CMD (/usr/bin/systemctl restart nginx.service)
+2026-01-27T17:17:54.071271+01:00 demo-node CRON[14208]: (backup) CMD (run-parts --report /etc/cron.hourly)
+2026-01-27T19:08:40.079190+01:00 demo-node CRON[10989]: (backup) CMD (run-parts --report /etc/cron.hourly)
+2026-01-27T20:59:26.087109+01:00 demo-node CRON[25786]: (munin) CMD (/usr/bin/systemctl restart nginx.service)
+2026-01-27T22:50:12.095028+01:00 demo-node CRON[18894]: (backup) CMD (/usr/bin/systemctl restart nginx.service)
+2026-01-27T02:57:36.000000+01:00 demo-node nginx[10344]: client sent too large body: 1559926 bytes, client: 49.151.111.248, server: example.test, request: "POST /assets/app.js HTTP/1.1"
+2026-01-27T10:57:36.007919+01:00 demo-node nginx[49219]: SSL_do_handshake() failed (SSL: error:656926:SSL routines:tls_process_client_hello:unknown) while SSL handshaking, client: 81.29.25.150, server: api.example.test
+2026-01-27T18:57:36.015838+01:00 demo-node nginx[10517]: client sent too large body: 3021610 bytes, client: 15.41.95.18, server: static.example.test, request: "POST / HTTP/1.1"
+2026-01-27T08:52:47.000000+01:00 demo-node kernel: blk_update_request: I/O error, dev nvme0n1, sector 4140808
+2026-01-28T04:26:23.000000+01:00 demo-node sshd[38140]: Failed password for ubuntu from 153.20.41.108 port 44105 ssh2
+2026-01-28T16:26:24.007919+01:00 demo-node sshd[13586]: Accepted publickey for deploy from 172.160.122.68 port 26962 ssh2: RSA SHA256:50264926
+2026-01-28T01:46:33.000000+01:00 demo-node systemd[30164]: cron.service: Scheduled restart job, restart counter is 1.
+2026-01-28T06:34:33.007919+01:00 demo-node systemd[810]: Stopped docker.service.
+2026-01-28T20:58:33.031676+01:00 demo-node systemd[23072]: nginx.service: Main process exited, code=exited, status=2/FAILURE
+2026-01-28T00:40:59.000000+01:00 demo-node CRON[18876]: (www-data) CMD (/usr/bin/systemctl restart nginx.service)
+2026-01-28T02:31:45.007919+01:00 demo-node CRON[35800]: (munin) CMD (run-parts --report /etc/cron.hourly)
+2026-01-28T04:22:31.015838+01:00 demo-node CRON[43969]: (sysadmin) CMD (/usr/bin/find /var/tmp -type f -mtime +7 -delete)
+2026-01-28T06:13:17.023757+01:00 demo-node CRON[43675]: (root) CMD (/usr/local/bin/backup --incremental)
+2026-01-28T08:04:03.031676+01:00 demo-node CRON[17532]: (root) CMD (/usr/bin/logrotate /etc/logrotate.conf)
+2026-01-28T09:54:49.039595+01:00 demo-node CRON[48855]: (sysadmin) CMD (/usr/local/bin/backup --incremental)
+2026-01-28T11:45:36.047514+01:00 demo-node CRON[18048]: (munin) CMD (/usr/bin/apt-get -qq update)
+2026-01-28T13:36:22.055433+01:00 demo-node CRON[47229]: (munin) CMD (/usr/bin/apt-get -qq update)
+2026-01-28T15:27:08.063352+01:00 demo-node CRON[45255]: (munin) CMD (/usr/bin/systemctl restart nginx.service)
+2026-01-28T17:17:54.071271+01:00 demo-node CRON[16657]: (root) CMD (/usr/bin/logrotate /etc/logrotate.conf)
+2026-01-28T19:08:40.079190+01:00 demo-node CRON[41768]: (backup) CMD (/usr/bin/find /var/tmp -type f -mtime +7 -delete)
+2026-01-28T20:59:26.087109+01:00 demo-node CRON[3089]: (root) CMD (/usr/bin/certbot renew --quiet)
+2026-01-28T22:50:12.095028+01:00 demo-node CRON[8773]: (munin) CMD (/usr/local/bin/backup --incremental)
+2026-01-28T02:57:36.000000+01:00 demo-node nginx[48777]: SSL_do_handshake() failed (SSL: error:672092:SSL routines:tls_process_client_hello:unknown) while SSL handshaking, client: 114.218.4.29, server: example.test
+2026-01-28T10:57:36.007919+01:00 demo-node nginx[2561]: connect() failed (111: Connection refused) while connecting to upstream, client: 214.189.75.111, server: example.test, request: "GET / HTTP/1.1"
+2026-01-28T18:57:36.015838+01:00 demo-node nginx[2814]: client sent too large body: 4457517 bytes, client: 92.107.127.171, server: example.test, request: "POST /login HTTP/1.1"
+2026-01-28T04:26:23.000000+01:00 demo-node kernel: eth0: link up
+2026-01-28T16:26:24.007919+01:00 demo-node kernel: eth0: link down
+2026-01-29T04:26:23.000000+01:00 demo-node sshd[1824]: Failed password for invalid user test from 46.170.210.206 port 44927 ssh2
+2026-01-29T16:26:24.007919+01:00 demo-node sshd[25270]: Failed password for invalid user user from 10.240.113.52 port 54539 ssh2
+2026-01-29T01:46:33.000000+01:00 demo-node systemd[14809]: Stopped nginx.service.
+2026-01-29T06:34:33.007919+01:00 demo-node systemd[26313]: Started cron.service.
+2026-01-29T11:22:33.015838+01:00 demo-node systemd[4749]: Started networking.service.
+2026-01-29T16:10:33.023757+01:00 demo-node systemd[42240]: Started postgresql.service.
+2026-01-29T20:58:33.031676+01:00 demo-node systemd[35341]: cron.service: Scheduled restart job, restart counter is 1.
+2026-01-29T00:40:59.000000+01:00 demo-node CRON[17318]: (www-data) CMD (/usr/bin/find /var/tmp -type f -mtime +7 -delete)
+2026-01-29T02:31:45.007919+01:00 demo-node CRON[2707]: (root) CMD (/usr/bin/php -d detect_unicode=0 /usr/share/munin/munin-cron)
+2026-01-29T04:22:31.015838+01:00 demo-node CRON[22854]: (munin) CMD (/usr/bin/php -d detect_unicode=0 /usr/share/munin/munin-cron)
+2026-01-29T06:13:17.023757+01:00 demo-node CRON[39928]: (sysadmin) CMD (/usr/bin/logrotate /etc/logrotate.conf)
+2026-01-29T08:04:03.031676+01:00 demo-node CRON[25444]: (sysadmin) CMD (/usr/bin/apt-get -qq update)
+2026-01-29T09:54:49.039595+01:00 demo-node CRON[16893]: (root) CMD (/usr/bin/php -d detect_unicode=0 /usr/share/munin/munin-cron)
+2026-01-29T11:45:36.047514+01:00 demo-node CRON[310]: (sysadmin) CMD (/usr/bin/apt-get -qq update)
+2026-01-29T13:36:22.055433+01:00 demo-node CRON[24069]: (backup) CMD (/usr/bin/logrotate /etc/logrotate.conf)
+2026-01-29T15:27:08.063352+01:00 demo-node CRON[43731]: (munin) CMD (/usr/bin/certbot renew --quiet)
+2026-01-29T17:17:54.071271+01:00 demo-node CRON[43675]: (root) CMD (/usr/bin/find /var/tmp -type f -mtime +7 -delete)
+2026-01-29T19:08:40.079190+01:00 demo-node CRON[33434]: (munin) CMD (/usr/bin/php -d detect_unicode=0 /usr/share/munin/munin-cron)
+2026-01-29T20:59:26.087109+01:00 demo-node CRON[21576]: (backup) CMD (/usr/bin/find /var/tmp -type f -mtime +7 -delete)
+2026-01-29T22:50:12.095028+01:00 demo-node CRON[36533]: (www-data) CMD (/usr/bin/apt-get -qq update)
+2026-01-29T02:57:36.000000+01:00 demo-node nginx[27754]: connect() failed (111: Connection refused) while connecting to upstream, client: 171.194.89.158, server: static.example.test, request: "GET /login HTTP/1.1"
+2026-01-29T10:57:36.007919+01:00 demo-node nginx[226]: client sent too large body: 4949180 bytes, client: 78.146.107.111, server: static.example.test, request: "POST /assets/app.js HTTP/1.1"
+2026-01-29T18:57:36.015838+01:00 demo-node nginx[29152]: client sent too large body: 3429149 bytes, client: 114.109.242.204, server: static.example.test, request: "POST /api/v1/items HTTP/1.1"
+2026-01-29T04:26:23.000000+01:00 demo-node kernel: usb 2-3: new high-speed USB device number 17 using xhci_hcd
+2026-01-29T16:26:24.007919+01:00 demo-node kernel: usb 1-1: new high-speed USB device number 14 using xhci_hcd
+2026-01-30T04:26:23.000000+01:00 demo-node sshd[9856]: Failed password for invalid user root from 7.23.125.252 port 32162 ssh2
+2026-01-30T16:26:24.007919+01:00 demo-node sshd[47277]: Accepted publickey for deploy from 179.196.253.103 port 17013 ssh2: RSA SHA256:10744212
+2026-01-30T01:46:33.000000+01:00 demo-node systemd[49415]: networking.service: Main process exited, code=exited, status=1/FAILURE
+2026-01-30T06:34:33.007919+01:00 demo-node systemd[28062]: Started ssh.service.
+2026-01-30T11:22:33.015838+01:00 demo-node systemd[45807]: Stopped postgresql.service.
+2026-01-30T16:10:33.023757+01:00 demo-node systemd[36730]: ssh.service: Scheduled restart job, restart counter is 1.
+2026-01-30T20:58:33.031676+01:00 demo-node systemd[30114]: ssh.service: Main process exited, code=exited, status=127/FAILURE
+2026-01-30T00:40:59.000000+01:00 demo-node CRON[35008]: (sysadmin) CMD (/usr/bin/certbot renew --quiet)
+2026-01-30T02:31:45.007919+01:00 demo-node CRON[49696]: (backup) CMD (/usr/bin/php -d detect_unicode=0 /usr/share/munin/munin-cron)
+2026-01-30T22:50:12.095028+01:00 demo-node CRON[4409]: (backup) CMD (/usr/bin/php -d detect_unicode=0 /usr/share/munin/munin-cron)
+2026-01-30T02:57:36.000000+01:00 demo-node nginx[21884]: connect() failed (111: Connection refused) while connecting to upstream, client: 139.238.212.16, server: example.test, request: "GET /wp-login.php HTTP/1.1"
+2026-01-30T10:57:36.007919+01:00 demo-node nginx[38478]: connect() failed (111: Connection refused) while connecting to upstream, client: 179.10.194.123, server: example.test, request: "GET /login HTTP/1.1"
+2026-01-30T18:57:36.015838+01:00 demo-node nginx[25758]: connect() failed (111: Connection refused) while connecting to upstream, client: 219.214.112.125, server: example.test, request: "GET /login HTTP/1.1"
+2026-01-30T04:26:23.000000+01:00 demo-node kernel: [drm] GPU HANG: ecode 5:6:2:7
+2026-01-30T16:26:24.007919+01:00 demo-node kernel: blk_update_request: I/O error, dev sda, sector 6620562
+2026-01-31T04:26:23.000000+01:00 demo-node sshd[38990]: Accepted publickey for deploy from 145.13.42.165 port 29113 ssh2: RSA SHA256:34391257
+2026-01-31T16:26:24.007919+01:00 demo-node sshd[3495]: Failed password for git from 67.194.167.55 port 30823 ssh2
+2026-01-31T01:46:33.000000+01:00 demo-node systemd[18435]: networking.service: Scheduled restart job, restart counter is 4.
+2026-01-31T06:34:33.007919+01:00 demo-node systemd[16732]: Started networking.service.
+2026-01-31T11:22:33.015838+01:00 demo-node systemd[1470]: Stopped systemd-logind.service.
+2026-01-31T16:10:33.023757+01:00 demo-node systemd[23135]: Stopped ssh.service.
+2026-01-31T20:58:33.031676+01:00 demo-node systemd[42913]: nginx.service: Main process exited, code=exited, status=1/FAILURE
+2026-01-31T00:40:59.000000+01:00 demo-node CRON[13265]: (root) CMD (/usr/local/bin/backup --incremental)
+2026-01-31T02:31:45.007919+01:00 demo-node CRON[15833]: (www-data) CMD (/usr/bin/systemctl restart nginx.service)
+2026-01-31T04:22:31.015838+01:00 demo-node CRON[44073]: (root) CMD (/usr/bin/apt-get -qq update)
+2026-01-31T06:13:17.023757+01:00 demo-node CRON[30676]: (munin) CMD (/usr/bin/certbot renew --quiet)
+2026-01-31T08:04:03.031676+01:00 demo-node CRON[11196]: (sysadmin) CMD (/usr/bin/logrotate /etc/logrotate.conf)
+2026-01-31T09:54:49.039595+01:00 demo-node CRON[10932]: (munin) CMD (/usr/bin/logrotate /etc/logrotate.conf)
+2026-01-31T11:45:36.047514+01:00 demo-node CRON[38124]: (root) CMD (/usr/bin/find /var/tmp -type f -mtime +7 -delete)
+2026-01-31T13:36:22.055433+01:00 demo-node CRON[37935]: (backup) CMD (/usr/bin/php -d detect_unicode=0 /usr/share/munin/munin-cron)
+2026-01-31T15:27:08.063352+01:00 demo-node CRON[47059]: (www-data) CMD (/usr/bin/logrotate /etc/logrotate.conf)
+2026-01-31T17:17:54.071271+01:00 demo-node CRON[39003]: (www-data) CMD (/usr/bin/logrotate /etc/logrotate.conf)
+2026-01-31T19:08:40.079190+01:00 demo-node CRON[45891]: (munin) CMD (/usr/bin/logrotate /etc/logrotate.conf)
+2026-01-31T20:59:26.087109+01:00 demo-node CRON[37288]: (root) CMD (/usr/bin/certbot renew --quiet)
+2026-01-31T22:50:12.095028+01:00 demo-node CRON[35113]: (backup) CMD (/usr/bin/certbot renew --quiet)
+2026-01-31T02:57:36.000000+01:00 demo-node nginx[4719]: connect() failed (111: Connection refused) while connecting to upstream, client: 130.174.6.218, server: api.example.test, request: "GET /wp-login.php HTTP/1.1"
+2026-01-31T10:57:36.007919+01:00 demo-node nginx[28611]: client sent too large body: 3314192 bytes, client: 93.235.78.112, server: example.test, request: "POST /robots.txt HTTP/1.1"
+2026-01-31T18:57:36.015838+01:00 demo-node nginx[40564]: connect() failed (111: Connection refused) while connecting to upstream, client: 207.247.238.112, server: static.example.test, request: "GET /assets/app.js HTTP/1.1"
+2026-01-31T02:57:36.000000+01:00 demo-node kernel: blk_update_request: I/O error, dev nvme0n1, sector 4689639
+2026-01-31T10:57:36.007919+01:00 demo-node kernel: wlan0: link down
+2026-01-31T18:57:36.015838+01:00 demo-node kernel: [drm] GPU HANG: ecode 5:0:7:5
+2026-02-01T04:26:23.000000+01:00 demo-node sshd[12117]: Failed password for git from 125.108.181.205 port 17955 ssh2
+2026-02-01T16:26:24.007919+01:00 demo-node sshd[36624]: Failed password for invalid user postgres from 3.97.43.62 port 48214 ssh2
+2026-02-01T01:46:33.000000+01:00 demo-node systemd[45459]: Stopped docker.service.
+2026-02-01T11:22:33.015838+01:00 demo-node systemd[19483]: Started ssh.service.
+2026-02-01T16:10:33.023757+01:00 demo-node systemd[16145]: Stopped cron.service.
+2026-02-01T20:58:33.031676+01:00 demo-node systemd[24384]: Stopped docker.service.
+2026-02-01T00:40:59.000000+01:00 demo-node CRON[22728]: (backup) CMD (/usr/bin/certbot renew --quiet)
+2026-02-01T02:31:45.007919+01:00 demo-node CRON[23256]: (backup) CMD (/usr/bin/find /var/tmp -type f -mtime +7 -delete)
+2026-02-01T04:22:31.015838+01:00 demo-node CRON[20294]: (munin) CMD (/usr/bin/apt-get -qq update)
+2026-02-01T06:13:17.023757+01:00 demo-node CRON[8107]: (www-data) CMD (/usr/bin/certbot renew --quiet)
+2026-02-01T08:04:03.031676+01:00 demo-node CRON[8035]: (sysadmin) CMD (/usr/local/bin/backup --incremental)
+2026-02-01T09:54:49.039595+01:00 demo-node CRON[12752]: (www-data) CMD (/usr/bin/systemctl restart nginx.service)
+2026-02-01T11:45:36.047514+01:00 demo-node CRON[18320]: (sysadmin) CMD (/usr/bin/find /var/tmp -type f -mtime +7 -delete)
+2026-02-01T13:36:22.055433+01:00 demo-node CRON[6788]: (www-data) CMD (/usr/bin/find /var/tmp -type f -mtime +7 -delete)
+2026-02-01T15:27:08.063352+01:00 demo-node CRON[15108]: (munin) CMD (/usr/local/bin/backup --incremental)
+2026-02-01T17:17:54.071271+01:00 demo-node CRON[20009]: (root) CMD (/usr/local/bin/backup --incremental)
+2026-02-01T19:08:40.079190+01:00 demo-node CRON[18177]: (root) CMD (run-parts --report /etc/cron.hourly)
+2026-02-01T20:59:26.087109+01:00 demo-node CRON[36464]: (munin) CMD (/usr/local/bin/backup --incremental)
+2026-02-01T22:50:12.095028+01:00 demo-node CRON[42003]: (backup) CMD (/usr/bin/logrotate /etc/logrotate.conf)
+2026-02-01T02:57:36.000000+01:00 demo-node nginx[1003]: connect() failed (111: Connection refused) while connecting to upstream, client: 147.145.240.123, server: api.example.test, request: "GET /login HTTP/1.1"
+2026-02-01T10:57:36.007919+01:00 demo-node nginx[3567]: connect() failed (111: Connection refused) while connecting to upstream, client: 65.244.58.211, server: example.test, request: "GET /health HTTP/1.1"
+2026-02-01T18:57:36.015838+01:00 demo-node nginx[38015]: connect() failed (111: Connection refused) while connecting to upstream, client: 162.27.77.39, server: static.example.test, request: "GET /login HTTP/1.1"
+2026-02-01T02:57:36.000000+01:00 demo-node kernel: blk_update_request: I/O error, dev nvme0n1, sector 6992241
+2026-02-01T10:57:36.007919+01:00 demo-node kernel: wlan0: link down
+2026-02-01T18:57:36.015838+01:00 demo-node kernel: snd_hda_intel: codec init failed with error -3
+2026-02-02T04:26:23.000000+01:00 demo-node sshd[38769]: Accepted publickey for root from 110.156.30.157 port 63945 ssh2: RSA SHA256:37888820
+2026-02-02T16:26:24.007919+01:00 demo-node sshd[41193]: Failed password for invalid user deploy from 55.135.41.41 port 16743 ssh2
+2026-02-02T01:46:33.000000+01:00 demo-node systemd[375]: Stopped docker.service.
+2026-02-02T06:34:33.007919+01:00 demo-node systemd[39116]: Started docker.service.
+2026-02-02T11:22:33.015838+01:00 demo-node systemd[15370]: Stopped cron.service.
+2026-02-02T16:10:33.023757+01:00 demo-node systemd[46270]: Stopped networking.service.
+2026-02-02T20:58:33.031676+01:00 demo-node systemd[45248]: ssh.service: Scheduled restart job, restart counter is 6.
+2026-02-02T00:40:59.000000+01:00 demo-node CRON[38852]: (www-data) CMD (/usr/bin/php -d detect_unicode=0 /usr/share/munin/munin-cron)
+2026-02-02T02:31:45.007919+01:00 demo-node CRON[7721]: (sysadmin) CMD (/usr/bin/apt-get -qq update)
+2026-02-02T04:22:31.015838+01:00 demo-node CRON[42643]: (www-data) CMD (/usr/bin/find /var/tmp -type f -mtime +7 -delete)
+2026-02-02T06:13:17.023757+01:00 demo-node CRON[9521]: (root) CMD (run-parts --report /etc/cron.hourly)
+2026-02-02T08:04:03.031676+01:00 demo-node CRON[11073]: (munin) CMD (/usr/bin/find /var/tmp -type f -mtime +7 -delete)
+2026-02-02T09:54:49.039595+01:00 demo-node CRON[28980]: (root) CMD (/usr/bin/systemctl restart nginx.service)
+2026-02-02T11:45:36.047514+01:00 demo-node CRON[45333]: (munin) CMD (/usr/bin/php -d detect_unicode=0 /usr/share/munin/munin-cron)
+2026-02-02T13:36:22.055433+01:00 demo-node CRON[18041]: (sysadmin) CMD (/usr/bin/systemctl restart nginx.service)
+2026-02-02T15:27:08.063352+01:00 demo-node CRON[28888]: (root) CMD (run-parts --report /etc/cron.hourly)
+2026-02-02T17:17:54.071271+01:00 demo-node CRON[28513]: (munin) CMD (/usr/bin/find /var/tmp -type f -mtime +7 -delete)
+2026-02-02T19:08:40.079190+01:00 demo-node CRON[1895]: (root) CMD (/usr/bin/apt-get -qq update)
+2026-02-02T20:59:26.087109+01:00 demo-node CRON[44390]: (sysadmin) CMD (run-parts --report /etc/cron.hourly)
+2026-02-02T22:50:12.095028+01:00 demo-node CRON[44258]: (munin) CMD (run-parts --report /etc/cron.hourly)
+2026-02-02T02:57:36.000000+01:00 demo-node nginx[49762]: SSL_do_handshake() failed (SSL: error:557058:SSL routines:tls_process_client_hello:unknown) while SSL handshaking, client: 45.240.226.235, server: api.example.test
+2026-02-02T10:57:36.007919+01:00 demo-node nginx[41801]: connect() failed (111: Connection refused) while connecting to upstream, client: 209.251.46.121, server: api.example.test, request: "GET /health HTTP/1.1"
+2026-02-02T18:57:36.015838+01:00 demo-node nginx[44117]: connect() failed (111: Connection refused) while connecting to upstream, client: 27.82.168.106, server: static.example.test, request: "GET /health HTTP/1.1"
+2026-02-02T02:57:36.000000+01:00 demo-node kernel: blk_update_request: I/O error, dev sda, sector 7640712
+2026-02-02T10:57:36.007919+01:00 demo-node kernel: usb 2-3: new full-speed USB device number 22 using xhci_hcd
+2026-02-02T18:57:36.015838+01:00 demo-node kernel: [drm] GPU HANG: ecode 8:0:8:7
+2026-02-03T04:26:23.000000+01:00 demo-node sshd[27282]: Failed password for invalid user user from 14.96.185.160 port 50598 ssh2
+2026-02-03T16:26:24.007919+01:00 demo-node sshd[13540]: Failed password for invalid user user from 69.67.147.113 port 58751 ssh2
+2026-02-03T01:46:33.000000+01:00 demo-node systemd[46716]: Started ssh.service.
+2026-02-03T06:34:33.007919+01:00 demo-node systemd[1096]: Started postgresql.service.
+2026-02-03T11:22:33.015838+01:00 demo-node systemd[14925]: networking.service: Scheduled restart job, restart counter is 4.
+2026-02-03T16:10:33.023757+01:00 demo-node systemd[7898]: systemd-logind.service: Main process exited, code=exited, status=2/FAILURE
+2026-02-03T20:58:33.031676+01:00 demo-node systemd[47163]: Stopped cron.service.
+2026-02-03T00:40:59.000000+01:00 demo-node CRON[18119]: (backup) CMD (/usr/bin/systemctl restart nginx.service)
+2026-02-03T02:31:45.007919+01:00 demo-node CRON[31147]: (www-data) CMD (/usr/bin/systemctl restart nginx.service)
+2026-02-03T04:22:31.015838+01:00 demo-node CRON[36327]: (www-data) CMD (/usr/bin/php -d detect_unicode=0 /usr/share/munin/munin-cron)
+2026-02-03T06:13:17.023757+01:00 demo-node CRON[12691]: (sysadmin) CMD (/usr/local/bin/backup --incremental)
+2026-02-03T08:04:03.031676+01:00 demo-node CRON[4775]: (munin) CMD (/usr/bin/php -d detect_unicode=0 /usr/share/munin/munin-cron)
+2026-02-03T09:54:49.039595+01:00 demo-node CRON[22474]: (sysadmin) CMD (/usr/bin/find /var/tmp -type f -mtime +7 -delete)
+2026-02-03T11:45:36.047514+01:00 demo-node CRON[368]: (munin) CMD (/usr/bin/find /var/tmp -type f -mtime +7 -delete)
+2026-02-03T13:36:22.055433+01:00 demo-node CRON[38665]: (sysadmin) CMD (/usr/bin/systemctl restart nginx.service)
+2026-02-03T15:27:08.063352+01:00 demo-node CRON[9938]: (backup) CMD (/usr/bin/systemctl restart nginx.service)
+2026-02-03T17:17:54.071271+01:00 demo-node CRON[22818]: (munin) CMD (/usr/bin/php -d detect_unicode=0 /usr/share/munin/munin-cron)
+2026-02-03T19:08:40.079190+01:00 demo-node CRON[30041]: (munin) CMD (/usr/bin/apt-get -qq update)
+2026-02-03T20:59:26.087109+01:00 demo-node CRON[45911]: (www-data) CMD (/usr/bin/php -d detect_unicode=0 /usr/share/munin/munin-cron)
+2026-02-03T22:50:12.095028+01:00 demo-node CRON[15506]: (backup) CMD (run-parts --report /etc/cron.hourly)
+2026-02-03T02:57:36.000000+01:00 demo-node nginx[21052]: SSL_do_handshake() failed (SSL: error:259493:SSL routines:tls_process_client_hello:unknown) while SSL handshaking, client: 191.242.195.99, server: static.example.test
+2026-02-03T10:57:36.007919+01:00 demo-node nginx[32661]: SSL_do_handshake() failed (SSL: error:204555:SSL routines:tls_process_client_hello:unknown) while SSL handshaking, client: 10.64.169.223, server: example.test
+2026-02-03T18:57:36.015838+01:00 demo-node nginx[34668]: connect() failed (111: Connection refused) while connecting to upstream, client: 117.7.73.105, server: static.example.test, request: "GET /api/v1/items HTTP/1.1"
+2026-02-03T02:13:11.000000+01:00 demo-node kernel: usb 2-3: new low-speed USB device number 27 using xhci_hcd
+2026-02-03T08:13:12.007919+01:00 demo-node kernel: blk_update_request: I/O error, dev nvme0n1, sector 5522415
+2026-02-03T14:13:12.015838+01:00 demo-node kernel: [drm] GPU HANG: ecode 5:7:8:0
+2026-02-03T20:13:12.023757+01:00 demo-node kernel: blk_update_request: I/O error, dev nvme0n1, sector 3948791
+2026-02-04T04:26:23.000000+01:00 demo-node sshd[41563]: Accepted publickey for postgres from 176.147.116.192 port 6947 ssh2: RSA SHA256:95060193
+2026-02-04T16:26:24.007919+01:00 demo-node sshd[46330]: Failed password for invalid user admin from 26.227.85.178 port 20649 ssh2
+2026-02-04T20:58:33.031676+01:00 demo-node systemd[25270]: Stopped postgresql.service.
+2026-02-04T00:40:59.000000+01:00 demo-node CRON[32815]: (sysadmin) CMD (/usr/local/bin/backup --incremental)
+2026-02-04T02:31:45.007919+01:00 demo-node CRON[15416]: (backup) CMD (/usr/bin/find /var/tmp -type f -mtime +7 -delete)
+2026-02-04T04:22:31.015838+01:00 demo-node CRON[30318]: (munin) CMD (run-parts --report /etc/cron.hourly)
+2026-02-04T06:13:17.023757+01:00 demo-node CRON[30690]: (munin) CMD (/usr/local/bin/backup --incremental)
+2026-02-04T08:04:03.031676+01:00 demo-node CRON[5040]: (backup) CMD (/usr/bin/certbot renew --quiet)
+2026-02-04T09:54:49.039595+01:00 demo-node CRON[38707]: (munin) CMD (/usr/bin/php -d detect_unicode=0 /usr/share/munin/munin-cron)
+2026-02-04T11:45:36.047514+01:00 demo-node CRON[45440]: (munin) CMD (/usr/bin/systemctl restart nginx.service)
+2026-02-04T13:36:22.055433+01:00 demo-node CRON[19999]: (www-data) CMD (/usr/bin/php -d detect_unicode=0 /usr/share/munin/munin-cron)
+2026-02-04T15:27:08.063352+01:00 demo-node CRON[31867]: (root) CMD (/usr/bin/apt-get -qq update)
+2026-02-04T17:17:54.071271+01:00 demo-node CRON[25193]: (sysadmin) CMD (/usr/bin/certbot renew --quiet)
+2026-02-04T19:08:40.079190+01:00 demo-node CRON[37870]: (munin) CMD (/usr/bin/find /var/tmp -type f -mtime +7 -delete)
+2026-02-04T20:59:26.087109+01:00 demo-node CRON[1637]: (backup) CMD (/usr/bin/find /var/tmp -type f -mtime +7 -delete)
+2026-02-04T22:50:12.095028+01:00 demo-node CRON[730]: (sysadmin) CMD (run-parts --report /etc/cron.hourly)
+2026-02-04T02:57:36.000000+01:00 demo-node nginx[39941]: SSL_do_handshake() failed (SSL: error:329642:SSL routines:tls_process_client_hello:unknown) while SSL handshaking, client: 191.254.146.199, server: example.test
+2026-02-04T10:57:36.007919+01:00 demo-node nginx[41921]: client sent too large body: 3640093 bytes, client: 49.128.70.161, server: example.test, request: "POST /robots.txt HTTP/1.1"
+2026-02-04T18:57:36.015838+01:00 demo-node nginx[29089]: client sent too large body: 2521952 bytes, client: 9.186.67.24, server: api.example.test, request: "POST /login HTTP/1.1"
+2026-02-04T02:13:11.000000+01:00 demo-node kernel: eth0: link down
+2026-02-04T08:13:12.007919+01:00 demo-node kernel: usb 1-1: new high-speed USB device number 18 using xhci_hcd
+2026-02-04T14:13:12.015838+01:00 demo-node kernel: usb 1-1: new low-speed USB device number 23 using xhci_hcd
+2026-02-04T20:13:12.023757+01:00 demo-node kernel: snd_hda_intel: codec init failed with error -5
+2026-02-05T04:26:23.000000+01:00 demo-node sshd[9424]: Failed password for ubuntu from 194.115.203.248 port 56450 ssh2
+2026-02-05T16:26:24.007919+01:00 demo-node sshd[1112]: Failed password for backup from 68.63.232.95 port 45118 ssh2
+2026-02-05T01:46:33.000000+01:00 demo-node systemd[7300]: Started systemd-logind.service.
+2026-02-05T06:34:33.007919+01:00 demo-node systemd[1840]: postgresql.service: Main process exited, code=exited, status=127/FAILURE
+2026-02-05T11:22:33.015838+01:00 demo-node systemd[21696]: Started postgresql.service.
+2026-02-05T16:10:33.023757+01:00 demo-node systemd[4342]: systemd-logind.service: Main process exited, code=exited, status=127/FAILURE
+2026-02-05T20:58:33.031676+01:00 demo-node systemd[20004]: Started systemd-logind.service.
+2026-02-05T00:40:59.000000+01:00 demo-node CRON[9360]: (root) CMD (run-parts --report /etc/cron.hourly)
+2026-02-05T02:31:45.007919+01:00 demo-node CRON[20146]: (backup) CMD (/usr/bin/logrotate /etc/logrotate.conf)
+2026-02-05T04:22:31.015838+01:00 demo-node CRON[6569]: (www-data) CMD (/usr/local/bin/backup --incremental)
+2026-02-05T06:13:17.023757+01:00 demo-node CRON[25670]: (backup) CMD (/usr/bin/certbot renew --quiet)
+2026-02-05T08:04:03.031676+01:00 demo-node CRON[44140]: (sysadmin) CMD (/usr/bin/php -d detect_unicode=0 /usr/share/munin/munin-cron)
+2026-02-05T09:54:49.039595+01:00 demo-node CRON[38691]: (www-data) CMD (/usr/bin/php -d detect_unicode=0 /usr/share/munin/munin-cron)
+2026-02-05T11:45:36.047514+01:00 demo-node CRON[43120]: (root) CMD (/usr/bin/systemctl restart nginx.service)
+2026-02-05T13:36:22.055433+01:00 demo-node CRON[40547]: (backup) CMD (/usr/bin/find /var/tmp -type f -mtime +7 -delete)
+2026-02-05T15:27:08.063352+01:00 demo-node CRON[2344]: (munin) CMD (/usr/bin/apt-get -qq update)
+2026-02-05T17:17:54.071271+01:00 demo-node CRON[29257]: (backup) CMD (/usr/bin/apt-get -qq update)
+2026-02-05T19:08:40.079190+01:00 demo-node CRON[23968]: (root) CMD (/usr/bin/certbot renew --quiet)
+2026-02-05T20:59:26.087109+01:00 demo-node CRON[35882]: (munin) CMD (run-parts --report /etc/cron.hourly)
+2026-02-05T22:50:12.095028+01:00 demo-node CRON[26292]: (munin) CMD (/usr/bin/apt-get -qq update)
+2026-02-05T02:57:36.000000+01:00 demo-node nginx[8205]: client sent too large body: 1227736 bytes, client: 218.232.46.170, server: example.test, request: "POST /robots.txt HTTP/1.1"
+2026-02-05T10:57:36.007919+01:00 demo-node nginx[3514]: client sent too large body: 1624120 bytes, client: 202.170.124.254, server: example.test, request: "POST /wp-login.php HTTP/1.1"
+2026-02-05T18:57:36.015838+01:00 demo-node nginx[36520]: SSL_do_handshake() failed (SSL: error:102973:SSL routines:tls_process_client_hello:unknown) while SSL handshaking, client: 54.110.119.85, server: example.test
+2026-02-05T02:13:11.000000+01:00 demo-node kernel: eth0: link up
+2026-02-05T08:13:12.007919+01:00 demo-node kernel: usb 1-1: new high-speed USB device number 9 using xhci_hcd
+2026-02-05T14:13:12.015838+01:00 demo-node kernel: blk_update_request: I/O error, dev sda, sector 2221291
+2026-02-05T20:13:12.023757+01:00 demo-node kernel: usb 2-3: new high-speed USB device number 39 using xhci_hcd
+2026-02-06T04:26:23.000000+01:00 demo-node sshd[21418]: Failed password for invalid user postgres from 5.89.135.14 port 9331 ssh2
+2026-02-06T16:26:24.007919+01:00 demo-node sshd[31411]: Accepted publickey for test from 115.185.55.116 port 34043 ssh2: RSA SHA256:15820356
+2026-02-06T01:46:33.000000+01:00 demo-node systemd[47860]: networking.service: Scheduled restart job, restart counter is 6.
+2026-02-06T11:22:33.015838+01:00 demo-node systemd[2241]: nginx.service: Scheduled restart job, restart counter is 4.
+2026-02-06T16:10:33.023757+01:00 demo-node systemd[28136]: Started systemd-logind.service.
+2026-02-06T20:58:33.031676+01:00 demo-node systemd[46887]: Started docker.service.
+2026-02-06T00:40:59.000000+01:00 demo-node CRON[5494]: (munin) CMD (/usr/local/bin/backup --incremental)
+2026-02-06T02:31:45.007919+01:00 demo-node CRON[4504]: (www-data) CMD (/usr/bin/find /var/tmp -type f -mtime +7 -delete)
+2026-02-06T04:22:31.015838+01:00 demo-node CRON[41115]: (sysadmin) CMD (/usr/bin/certbot renew --quiet)
+2026-02-06T06:13:17.023757+01:00 demo-node CRON[25162]: (sysadmin) CMD (/usr/bin/find /var/tmp -type f -mtime +7 -delete)
+2026-02-06T08:04:03.031676+01:00 demo-node CRON[29934]: (sysadmin) CMD (/usr/bin/php -d detect_unicode=0 /usr/share/munin/munin-cron)
+2026-02-06T09:54:49.039595+01:00 demo-node CRON[6699]: (root) CMD (/usr/bin/apt-get -qq update)
+2026-02-06T11:45:36.047514+01:00 demo-node CRON[28385]: (backup) CMD (/usr/bin/apt-get -qq update)
+2026-02-06T13:36:22.055433+01:00 demo-node CRON[27319]: (munin) CMD (/usr/bin/systemctl restart nginx.service)
+2026-02-06T15:27:08.063352+01:00 demo-node CRON[26331]: (backup) CMD (/usr/bin/logrotate /etc/logrotate.conf)
+2026-02-06T17:17:54.071271+01:00 demo-node CRON[20683]: (backup) CMD (/usr/bin/certbot renew --quiet)
+2026-02-06T19:08:40.079190+01:00 demo-node CRON[43788]: (munin) CMD (/usr/bin/certbot renew --quiet)
+2026-02-06T20:59:26.087109+01:00 demo-node CRON[10203]: (backup) CMD (/usr/bin/logrotate /etc/logrotate.conf)
+2026-02-06T22:50:12.095028+01:00 demo-node CRON[6178]: (root) CMD (/usr/bin/logrotate /etc/logrotate.conf)
+2026-02-06T00:08:27.000000+01:00 demo-node nginx[28503]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 25.190.66.143, server: example.test, request: "GET /assets/app.js HTTP/1.1"
+2026-02-06T00:31:18.007919+01:00 demo-node nginx[37004]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 144.168.62.106, server: api.example.test, request: "GET /wp-login.php HTTP/1.1"
+2026-02-06T00:54:10.015838+01:00 demo-node nginx[43803]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 193.216.26.248, server: api.example.test, request: "GET /assets/app.js HTTP/1.1"
+2026-02-06T01:17:01.023757+01:00 demo-node nginx[20676]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 91.53.108.40, server: static.example.test, request: "GET /health HTTP/1.1"
+2026-02-06T01:39:53.031676+01:00 demo-node nginx[14896]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 217.55.179.217, server: static.example.test, request: "GET /login HTTP/1.1"
+2026-02-06T02:02:44.039595+01:00 demo-node nginx[7729]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 196.142.115.207, server: api.example.test, request: "GET /wp-login.php HTTP/1.1"
+2026-02-06T02:25:36.047514+01:00 demo-node nginx[36963]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 197.13.136.8, server: example.test, request: "GET /login HTTP/1.1"
+2026-02-06T02:48:27.055433+01:00 demo-node nginx[46252]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 196.158.173.90, server: example.test, request: "GET /api/v1/items HTTP/1.1"
+2026-02-06T03:11:18.063352+01:00 demo-node nginx[9588]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 145.205.35.37, server: static.example.test, request: "GET /robots.txt HTTP/1.1"
+2026-02-06T03:34:10.071271+01:00 demo-node nginx[2209]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 24.110.192.108, server: api.example.test, request: "GET /login HTTP/1.1"
+2026-02-06T03:57:01.079190+01:00 demo-node nginx[10515]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 95.159.166.199, server: static.example.test, request: "GET /assets/app.js HTTP/1.1"
+2026-02-06T04:19:53.087109+01:00 demo-node nginx[5767]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 14.79.80.194, server: static.example.test, request: "GET / HTTP/1.1"
+2026-02-06T04:42:44.095028+01:00 demo-node nginx[44369]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 21.139.226.170, server: api.example.test, request: "GET /health HTTP/1.1"
+2026-02-06T05:05:35.102947+01:00 demo-node nginx[39985]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 114.212.139.56, server: static.example.test, request: "GET / HTTP/1.1"
+2026-02-06T05:28:27.110866+01:00 demo-node nginx[22821]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 111.56.145.174, server: static.example.test, request: "GET /assets/app.js HTTP/1.1"
+2026-02-06T05:51:18.118785+01:00 demo-node nginx[32091]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 135.157.23.57, server: api.example.test, request: "GET /assets/app.js HTTP/1.1"
+2026-02-06T06:14:10.126704+01:00 demo-node nginx[3790]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 2.104.154.243, server: example.test, request: "GET /wp-login.php HTTP/1.1"
+2026-02-06T06:37:01.134623+01:00 demo-node nginx[9193]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 196.130.148.84, server: example.test, request: "GET / HTTP/1.1"
+2026-02-06T06:59:53.142542+01:00 demo-node nginx[32796]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 192.220.89.34, server: api.example.test, request: "GET /assets/app.js HTTP/1.1"
+2026-02-06T07:22:44.150461+01:00 demo-node nginx[46315]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 59.181.36.102, server: static.example.test, request: "GET / HTTP/1.1"
+2026-02-06T07:45:36.158380+01:00 demo-node nginx[28788]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 5.235.39.221, server: api.example.test, request: "GET /assets/app.js HTTP/1.1"
+2026-02-06T08:08:27.166299+01:00 demo-node nginx[28333]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 147.207.213.75, server: example.test, request: "GET /health HTTP/1.1"
+2026-02-06T08:31:18.174218+01:00 demo-node nginx[1566]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 84.87.235.213, server: static.example.test, request: "GET /login HTTP/1.1"
+2026-02-06T08:54:10.182137+01:00 demo-node nginx[5975]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 112.54.124.112, server: static.example.test, request: "GET /health HTTP/1.1"
+2026-02-06T09:17:01.190056+01:00 demo-node nginx[34538]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 21.202.158.191, server: api.example.test, request: "GET /api/v1/items HTTP/1.1"
+2026-02-06T09:39:53.197975+01:00 demo-node nginx[22027]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 200.86.39.131, server: static.example.test, request: "GET / HTTP/1.1"
+2026-02-06T10:02:44.205894+01:00 demo-node nginx[34973]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 131.99.178.90, server: static.example.test, request: "GET /wp-login.php HTTP/1.1"
+2026-02-06T10:25:36.213813+01:00 demo-node nginx[42499]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 209.75.120.27, server: example.test, request: "GET /login HTTP/1.1"
+2026-02-06T10:48:27.221732+01:00 demo-node nginx[13128]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 45.78.38.46, server: static.example.test, request: "GET /health HTTP/1.1"
+2026-02-06T11:11:18.229651+01:00 demo-node nginx[30605]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 194.229.165.222, server: static.example.test, request: "GET /login HTTP/1.1"
+2026-02-06T11:34:10.237570+01:00 demo-node nginx[10093]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 113.34.240.114, server: static.example.test, request: "GET /login HTTP/1.1"
+2026-02-06T11:57:01.245489+01:00 demo-node nginx[18201]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 152.28.180.130, server: example.test, request: "GET /login HTTP/1.1"
+2026-02-06T12:19:53.253408+01:00 demo-node nginx[30460]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 116.19.29.95, server: api.example.test, request: "GET / HTTP/1.1"
+2026-02-06T12:42:44.261327+01:00 demo-node nginx[42448]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 222.46.196.119, server: static.example.test, request: "GET /assets/app.js HTTP/1.1"
+2026-02-06T13:05:35.269246+01:00 demo-node nginx[48625]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 11.230.96.83, server: static.example.test, request: "GET /health HTTP/1.1"
+2026-02-06T13:28:27.277165+01:00 demo-node nginx[33057]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 39.31.230.27, server: api.example.test, request: "GET /robots.txt HTTP/1.1"
+2026-02-06T13:51:18.285084+01:00 demo-node nginx[5726]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 130.88.20.64, server: static.example.test, request: "GET /health HTTP/1.1"
+2026-02-06T14:14:10.293003+01:00 demo-node nginx[28997]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 135.81.186.96, server: api.example.test, request: "GET /health HTTP/1.1"
+2026-02-06T14:37:01.300922+01:00 demo-node nginx[26989]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 199.173.26.203, server: static.example.test, request: "GET /robots.txt HTTP/1.1"
+2026-02-06T14:59:53.308841+01:00 demo-node nginx[22131]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 17.168.48.143, server: static.example.test, request: "GET /health HTTP/1.1"
+2026-02-06T15:22:44.316760+01:00 demo-node nginx[18821]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 65.76.170.21, server: static.example.test, request: "GET /robots.txt HTTP/1.1"
+2026-02-06T15:45:35.324679+01:00 demo-node nginx[9468]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 90.158.200.34, server: static.example.test, request: "GET /robots.txt HTTP/1.1"
+2026-02-06T16:08:27.332598+01:00 demo-node nginx[5752]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 80.192.168.209, server: example.test, request: "GET /robots.txt HTTP/1.1"
+2026-02-06T16:31:18.340517+01:00 demo-node nginx[46260]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 213.47.216.131, server: api.example.test, request: "GET / HTTP/1.1"
+2026-02-06T16:54:10.348436+01:00 demo-node nginx[23963]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 80.92.109.88, server: api.example.test, request: "GET /api/v1/items HTTP/1.1"
+2026-02-06T17:17:01.356355+01:00 demo-node nginx[15046]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 36.79.39.76, server: example.test, request: "GET /assets/app.js HTTP/1.1"
+2026-02-06T17:39:53.364274+01:00 demo-node nginx[35574]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 214.19.172.225, server: static.example.test, request: "GET /api/v1/items HTTP/1.1"
+2026-02-06T18:02:44.372193+01:00 demo-node nginx[39341]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 97.78.83.47, server: static.example.test, request: "GET /wp-login.php HTTP/1.1"
+2026-02-06T18:25:36.380112+01:00 demo-node nginx[41142]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 208.84.224.12, server: api.example.test, request: "GET /login HTTP/1.1"
+2026-02-06T18:48:27.388031+01:00 demo-node nginx[44526]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 185.121.227.157, server: api.example.test, request: "GET /wp-login.php HTTP/1.1"
+2026-02-06T19:11:18.395950+01:00 demo-node nginx[49256]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 201.229.119.137, server: example.test, request: "GET /login HTTP/1.1"
+2026-02-06T19:34:10.403869+01:00 demo-node nginx[30937]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 214.99.188.174, server: static.example.test, request: "GET /health HTTP/1.1"
+2026-02-06T19:57:01.411788+01:00 demo-node nginx[30456]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 197.144.195.129, server: static.example.test, request: "GET /health HTTP/1.1"
+2026-02-06T20:19:53.419707+01:00 demo-node nginx[10820]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 210.102.70.224, server: api.example.test, request: "GET / HTTP/1.1"
+2026-02-06T20:42:44.427626+01:00 demo-node nginx[42220]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 124.190.52.183, server: static.example.test, request: "GET /wp-login.php HTTP/1.1"
+2026-02-06T21:05:36.435545+01:00 demo-node nginx[8370]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 73.42.82.70, server: api.example.test, request: "GET /assets/app.js HTTP/1.1"
+2026-02-06T21:28:27.443464+01:00 demo-node nginx[9856]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 213.223.46.243, server: example.test, request: "GET /wp-login.php HTTP/1.1"
+2026-02-06T21:51:18.451383+01:00 demo-node nginx[29765]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 90.13.212.14, server: api.example.test, request: "GET /assets/app.js HTTP/1.1"
+2026-02-06T22:14:10.459302+01:00 demo-node nginx[24707]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 61.197.41.96, server: example.test, request: "GET / HTTP/1.1"
+2026-02-06T22:37:01.467221+01:00 demo-node nginx[21085]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 26.171.74.36, server: example.test, request: "GET /login HTTP/1.1"
+2026-02-06T22:59:53.475140+01:00 demo-node nginx[31162]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 179.71.240.115, server: static.example.test, request: "GET / HTTP/1.1"
+2026-02-06T23:22:44.483059+01:00 demo-node nginx[5392]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 5.131.110.214, server: example.test, request: "GET /assets/app.js HTTP/1.1"
+2026-02-06T23:45:36.490978+01:00 demo-node nginx[47860]: upstream timed out (110: Connection timed out) while reading response header from upstream, client: 156.216.56.199, server: api.example.test, request: "GET /api/v1/items HTTP/1.1"
+2026-02-06T01:46:33.000000+01:00 demo-node kernel: blk_update_request: I/O error, dev nvme0n1, sector 811102
+2026-02-06T06:34:33.007919+01:00 demo-node kernel: [drm] GPU HANG: ecode 9:7:1:1
+2026-02-06T11:22:33.015838+01:00 demo-node kernel: blk_update_request: I/O error, dev sda, sector 8656569
+2026-02-06T16:10:33.023757+01:00 demo-node kernel: wlan0: link up
+2026-02-06T20:58:33.031676+01:00 demo-node kernel: [drm] GPU HANG: ecode 0:9:5:3
+2026-02-07T04:26:23.000000+01:00 demo-node sshd[37599]: Failed password for invalid user git from 107.95.43.135 port 64898 ssh2
+2026-02-07T16:26:24.007919+01:00 demo-node sshd[25788]: Accepted publickey for backup from 121.22.198.252 port 25488 ssh2: RSA SHA256:57928328
+2026-02-07T01:46:33.000000+01:00 demo-node systemd[4627]: Started cron.service.
+2026-02-07T06:34:33.007919+01:00 demo-node systemd[43263]: Started systemd-logind.service.
+2026-02-07T11:22:33.015838+01:00 demo-node systemd[38335]: systemd-logind.service: Main process exited, code=exited, status=1/FAILURE
+2026-02-07T16:10:33.023757+01:00 demo-node systemd[3105]: Stopped cron.service.
+2026-02-07T20:58:33.031676+01:00 demo-node systemd[42326]: ssh.service: Main process exited, code=exited, status=127/FAILURE
+2026-02-07T00:40:59.000000+01:00 demo-node CRON[30649]: (backup) CMD (/usr/local/bin/backup --incremental)
+2026-02-07T02:31:45.007919+01:00 demo-node CRON[9037]: (root) CMD (/usr/bin/systemctl restart nginx.service)
+2026-02-07T04:22:31.015838+01:00 demo-node CRON[2623]: (munin) CMD (/usr/bin/apt-get -qq update)
+2026-02-07T06:13:17.023757+01:00 demo-node CRON[3070]: (www-data) CMD (run-parts --report /etc/cron.hourly)
+2026-02-07T08:04:03.031676+01:00 demo-node CRON[20882]: (munin) CMD (/usr/bin/php -d detect_unicode=0 /usr/share/munin/munin-cron)
+2026-02-07T09:54:49.039595+01:00 demo-node CRON[35788]: (backup) CMD (/usr/bin/find /var/tmp -type f -mtime +7 -delete)
+2026-02-07T11:45:36.047514+01:00 demo-node CRON[2599]: (www-data) CMD (/usr/bin/find /var/tmp -type f -mtime +7 -delete)
+2026-02-07T13:36:22.055433+01:00 demo-node CRON[23594]: (root) CMD (/usr/bin/certbot renew --quiet)
+2026-02-07T15:27:08.063352+01:00 demo-node CRON[18105]: (root) CMD (/usr/bin/certbot renew --quiet)
+2026-02-07T17:17:54.071271+01:00 demo-node CRON[28836]: (backup) CMD (/usr/bin/systemctl restart nginx.service)
+2026-02-07T19:08:40.079190+01:00 demo-node CRON[25539]: (munin) CMD (/usr/local/bin/backup --incremental)
+2026-02-07T20:59:26.087109+01:00 demo-node CRON[32719]: (backup) CMD (/usr/bin/certbot renew --quiet)
+2026-02-07T22:50:12.095028+01:00 demo-node CRON[34231]: (munin) CMD (/usr/bin/logrotate /etc/logrotate.conf)
+2026-02-07T02:57:36.000000+01:00 demo-node nginx[47850]: connect() failed (111: Connection refused) while connecting to upstream, client: 109.40.220.155, server: example.test, request: "GET /assets/app.js HTTP/1.1"
+2026-02-07T10:57:36.007919+01:00 demo-node nginx[6923]: client sent too large body: 2446494 bytes, client: 21.167.151.79, server: api.example.test, request: "POST /assets/app.js HTTP/1.1"
+2026-02-07T18:57:36.015838+01:00 demo-node nginx[45404]: SSL_do_handshake() failed (SSL: error:744718:SSL routines:tls_process_client_hello:unknown) while SSL handshaking, client: 114.179.228.11, server: static.example.test
+2026-02-07T01:46:33.000000+01:00 demo-node kernel: usb 1-1: new low-speed USB device number 5 using xhci_hcd
+2026-02-07T06:34:33.007919+01:00 demo-node kernel: [drm] GPU HANG: ecode 5:8:2:0
+2026-02-07T11:22:33.015838+01:00 demo-node kernel: snd_hda_intel: codec init failed with error -5
+2026-02-07T16:10:33.023757+01:00 demo-node kernel: blk_update_request: I/O error, dev nvme0n1, sector 3969345
+2026-02-07T20:58:33.031676+01:00 demo-node kernel: usb 2-3: new full-speed USB device number 26 using xhci_hcd
+2026-02-08T04:26:23.000000+01:00 demo-node sshd[37374]: Failed password for invalid user git from 9.78.230.243 port 25335 ssh2
+2026-02-08T16:26:24.007919+01:00 demo-node sshd[37812]: Failed password for invalid user backup from 36.187.203.81 port 43593 ssh2
+2026-02-08T01:46:33.000000+01:00 demo-node systemd[1898]: Started systemd-logind.service.
+2026-02-08T06:34:33.007919+01:00 demo-node systemd[34130]: docker.service: Scheduled restart job, restart counter is 1.
+2026-02-08T11:22:33.015838+01:00 demo-node systemd[17355]: Started networking.service.
+2026-02-08T00:40:59.000000+01:00 demo-node CRON[9095]: (root) CMD (/usr/bin/systemctl restart nginx.service)
+2026-02-08T02:31:45.007919+01:00 demo-node CRON[11515]: (backup) CMD (/usr/bin/logrotate /etc/logrotate.conf)
+2026-02-08T04:22:31.015838+01:00 demo-node CRON[44890]: (munin) CMD (/usr/bin/certbot renew --quiet)
+2026-02-08T06:13:17.023757+01:00 demo-node CRON[46700]: (root) CMD (/usr/bin/find /var/tmp -type f -mtime +7 -delete)
+2026-02-08T08:04:03.031676+01:00 demo-node CRON[19857]: (www-data) CMD (/usr/local/bin/backup --incremental)
+2026-02-08T09:54:49.039595+01:00 demo-node CRON[23890]: (sysadmin) CMD (/usr/bin/apt-get -qq update)
+2026-02-08T11:45:36.047514+01:00 demo-node CRON[8153]: (www-data) CMD (/usr/local/bin/backup --incremental)
+2026-02-08T13:36:22.055433+01:00 demo-node CRON[15714]: (backup) CMD (run-parts --report /etc/cron.hourly)
+2026-02-08T15:27:08.063352+01:00 demo-node CRON[23851]: (sysadmin) CMD (/usr/bin/certbot renew --quiet)
+2026-02-08T17:17:54.071271+01:00 demo-node CRON[30831]: (sysadmin) CMD (/usr/local/bin/backup --incremental)
+2026-02-08T19:08:40.079190+01:00 demo-node CRON[40304]: (root) CMD (/usr/bin/logrotate /etc/logrotate.conf)
+2026-02-08T20:59:26.087109+01:00 demo-node CRON[20469]: (backup) CMD (/usr/bin/systemctl restart nginx.service)
+2026-02-08T22:50:12.095028+01:00 demo-node CRON[34651]: (backup) CMD (/usr/bin/php -d detect_unicode=0 /usr/share/munin/munin-cron)
+2026-02-08T02:57:36.000000+01:00 demo-node nginx[37876]: connect() failed (111: Connection refused) while connecting to upstream, client: 19.64.162.165, server: example.test, request: "GET /health HTTP/1.1"
+2026-02-08T10:57:36.007919+01:00 demo-node nginx[34105]: client sent too large body: 1513413 bytes, client: 89.65.93.197, server: example.test, request: "POST /health HTTP/1.1"
+2026-02-08T18:57:36.015838+01:00 demo-node nginx[8337]: SSL_do_handshake() failed (SSL: error:336422:SSL routines:tls_process_client_hello:unknown) while SSL handshaking, client: 133.78.155.43, server: example.test
+2026-02-08T01:46:33.000000+01:00 demo-node kernel: usb 1-1: new high-speed USB device number 18 using xhci_hcd
+2026-02-08T06:34:33.007919+01:00 demo-node kernel: usb 1-1: new high-speed USB device number 21 using xhci_hcd
+2026-02-08T11:22:33.015838+01:00 demo-node kernel: blk_update_request: I/O error, dev nvme0n1, sector 8441778
+2026-02-08T16:10:33.023757+01:00 demo-node kernel: eth0: link up
+2026-02-08T20:58:33.031676+01:00 demo-node kernel: usb 2-3: new low-speed USB device number 4 using xhci_hcd
+2026-02-09T04:26:23.000000+01:00 demo-node sshd[2059]: Failed password for invalid user postgres from 21.23.135.167 port 14839 ssh2
+2026-02-09T16:26:24.007919+01:00 demo-node sshd[32839]: Failed password for invalid user postgres from 161.148.154.124 port 17072 ssh2
+2026-02-09T06:34:33.007919+01:00 demo-node systemd[27438]: Stopped docker.service.
+2026-02-09T11:22:33.015838+01:00 demo-node systemd[22494]: Started postgresql.service.
+2026-02-09T16:10:33.023757+01:00 demo-node systemd[47278]: Stopped cron.service.
+2026-02-09T20:58:33.031676+01:00 demo-node systemd[22834]: Started docker.service.
+2026-02-09T00:40:59.000000+01:00 demo-node CRON[24483]: (sysadmin) CMD (/usr/bin/logrotate /etc/logrotate.conf)
+2026-02-09T02:31:45.007919+01:00 demo-node CRON[21113]: (www-data) CMD (/usr/bin/systemctl restart nginx.service)
+2026-02-09T04:22:31.015838+01:00 demo-node CRON[8229]: (munin) CMD (/usr/bin/systemctl restart nginx.service)
+2026-02-09T06:13:17.023757+01:00 demo-node CRON[16447]: (www-data) CMD (/usr/bin/logrotate /etc/logrotate.conf)
+2026-02-09T13:36:22.055433+01:00 demo-node CRON[12640]: (www-data) CMD (/usr/bin/systemctl restart nginx.service)
+2026-02-09T15:27:08.063352+01:00 demo-node CRON[33933]: (backup) CMD (/usr/bin/systemctl restart nginx.service)
+2026-02-09T17:17:54.071271+01:00 demo-node CRON[20420]: (backup) CMD (run-parts --report /etc/cron.hourly)
+2026-02-09T19:08:40.079190+01:00 demo-node CRON[6101]: (backup) CMD (/usr/bin/systemctl restart nginx.service)
+2026-02-09T20:59:26.087109+01:00 demo-node CRON[15976]: (www-data) CMD (/usr/bin/certbot renew --quiet)
+2026-02-09T22:50:12.095028+01:00 demo-node CRON[3388]: (root) CMD (/usr/bin/find /var/tmp -type f -mtime +7 -delete)
+2026-02-09T02:57:36.000000+01:00 demo-node nginx[32633]: connect() failed (111: Connection refused) while connecting to upstream, client: 153.240.146.138, server: example.test, request: "GET /wp-login.php HTTP/1.1"
+2026-02-09T10:57:36.007919+01:00 demo-node nginx[8977]: connect() failed (111: Connection refused) while connecting to upstream, client: 68.187.206.94, server: example.test, request: "GET /health HTTP/1.1"
+2026-02-09T18:57:36.015838+01:00 demo-node nginx[37019]: connect() failed (111: Connection refused) while connecting to upstream, client: 50.185.147.19, server: api.example.test, request: "GET /assets/app.js HTTP/1.1"
+2026-02-09T01:28:48.000000+01:00 demo-node kernel: usb 1-1: new low-speed USB device number 9 using xhci_hcd
+2026-02-09T05:28:48.007919+01:00 demo-node kernel: blk_update_request: I/O error, dev nvme0n1, sector 6618607
+2026-02-09T09:28:48.015838+01:00 demo-node kernel: usb 2-3: new low-speed USB device number 25 using xhci_hcd
+2026-02-09T13:28:48.023757+01:00 demo-node kernel: eth0: link up
+2026-02-09T17:28:48.031676+01:00 demo-node kernel: [drm] GPU HANG: ecode 8:0:0:0
+2026-02-09T21:28:48.039595+01:00 demo-node kernel: usb 2-3: new full-speed USB device number 35 using xhci_hcd
+2026-02-10T04:26:23.000000+01:00 demo-node sshd[30149]: Failed password for git from 39.71.167.239 port 41202 ssh2
+2026-02-10T16:26:24.007919+01:00 demo-node sshd[39110]: Failed password for invalid user admin from 87.250.153.122 port 54484 ssh2
+2026-02-10T01:46:33.000000+01:00 demo-node systemd[27498]: Started postgresql.service.
+2026-02-10T06:34:33.007919+01:00 demo-node systemd[47734]: Stopped networking.service.
+2026-02-10T11:22:33.015838+01:00 demo-node systemd[1946]: Stopped postgresql.service.
+2026-02-10T16:10:33.023757+01:00 demo-node systemd[43164]: networking.service: Scheduled restart job, restart counter is 5.
+2026-02-10T20:58:33.031676+01:00 demo-node systemd[38055]: Stopped ssh.service.
+2026-02-10T00:40:59.000000+01:00 demo-node CRON[38441]: (backup) CMD (/usr/local/bin/backup --incremental)
+2026-02-10T02:31:45.007919+01:00 demo-node CRON[34556]: (sysadmin) CMD (/usr/bin/php -d detect_unicode=0 /usr/share/munin/munin-cron)
+2026-02-10T04:22:31.015838+01:00 demo-node CRON[9884]: (www-data) CMD (run-parts --report /etc/cron.hourly)
+2026-02-10T06:13:17.023757+01:00 demo-node CRON[37723]: (root) CMD (/usr/bin/apt-get -qq update)
+2026-02-10T08:04:03.031676+01:00 demo-node CRON[1441]: (backup) CMD (/usr/bin/certbot renew --quiet)
+2026-02-10T09:54:49.039595+01:00 demo-node CRON[27645]: (www-data) CMD (/usr/bin/php -d detect_unicode=0 /usr/share/munin/munin-cron)
+2026-02-10T11:45:36.047514+01:00 demo-node CRON[45452]: (www-data) CMD (/usr/bin/php -d detect_unicode=0 /usr/share/munin/munin-cron)
+2026-02-10T13:36:22.055433+01:00 demo-node CRON[33087]: (sysadmin) CMD (/usr/bin/systemctl restart nginx.service)
+2026-02-10T15:27:08.063352+01:00 demo-node CRON[48423]: (root) CMD (/usr/local/bin/backup --incremental)
+2026-02-10T17:17:54.071271+01:00 demo-node CRON[34192]: (www-data) CMD (/usr/bin/certbot renew --quiet)
+2026-02-10T19:08:40.079190+01:00 demo-node CRON[43599]: (backup) CMD (/usr/bin/php -d detect_unicode=0 /usr/share/munin/munin-cron)
+2026-02-10T20:59:26.087109+01:00 demo-node CRON[20762]: (www-data) CMD (/usr/bin/systemctl restart nginx.service)
+2026-02-10T22:50:12.095028+01:00 demo-node CRON[35139]: (munin) CMD (/usr/bin/certbot renew --quiet)
+2026-02-10T02:57:36.000000+01:00 demo-node nginx[44493]: client sent too large body: 2934898 bytes, client: 198.135.247.50, server: example.test, request: "POST /login HTTP/1.1"
+2026-02-10T10:57:36.007919+01:00 demo-node nginx[19704]: connect() failed (111: Connection refused) while connecting to upstream, client: 198.147.106.177, server: static.example.test, request: "GET /health HTTP/1.1"
+2026-02-10T18:57:36.015838+01:00 demo-node nginx[23059]: client sent too large body: 4358155 bytes, client: 144.140.147.32, server: static.example.test, request: "POST /robots.txt HTTP/1.1"
+2026-02-10T01:28:48.000000+01:00 demo-node kernel: eth0: link down
+2026-02-10T05:28:48.007919+01:00 demo-node kernel: usb 1-1: new low-speed USB device number 7 using xhci_hcd
+2026-02-10T09:28:48.015838+01:00 demo-node kernel: snd_hda_intel: codec init failed with error -3
+2026-02-10T13:28:48.023757+01:00 demo-node kernel: snd_hda_intel: codec init failed with error -4
+2026-02-10T17:28:48.031676+01:00 demo-node kernel: usb 1-1: new low-speed USB device number 19 using xhci_hcd
+2026-02-10T21:28:48.039595+01:00 demo-node kernel: blk_update_request: I/O error, dev nvme0n1, sector 4024486
+2026-02-11T04:26:23.000000+01:00 demo-node sshd[16089]: Failed password for postgres from 13.115.119.14 port 7590 ssh2
+2026-02-11T16:26:24.007919+01:00 demo-node sshd[6789]: Failed password for deploy from 175.70.2.247 port 37091 ssh2
+2026-02-11T01:46:33.000000+01:00 demo-node systemd[31490]: Started systemd-logind.service.
+2026-02-11T06:34:33.007919+01:00 demo-node systemd[19024]: Started cron.service.
+2026-02-11T11:22:33.015838+01:00 demo-node systemd[4077]: Started networking.service.
+2026-02-11T16:10:33.023757+01:00 demo-node systemd[37826]: Stopped ssh.service.
+2026-02-11T20:58:33.031676+01:00 demo-node systemd[47590]: networking.service: Scheduled restart job, restart counter is 2.
+2026-02-11T00:40:59.000000+01:00 demo-node CRON[27586]: (www-data) CMD (run-parts --report /etc/cron.hourly)
+2026-02-11T02:31:45.007919+01:00 demo-node CRON[26217]: (backup) CMD (/usr/local/bin/backup --incremental)
+2026-02-11T04:22:31.015838+01:00 demo-node CRON[49286]: (munin) CMD (run-parts --report /etc/cron.hourly)
+2026-02-11T06:13:17.023757+01:00 demo-node CRON[807]: (munin) CMD (/usr/bin/logrotate /etc/logrotate.conf)
+2026-02-11T08:04:03.031676+01:00 demo-node CRON[22157]: (munin) CMD (/usr/bin/systemctl restart nginx.service)
+2026-02-11T09:54:49.039595+01:00 demo-node CRON[42229]: (sysadmin) CMD (/usr/bin/systemctl restart nginx.service)
+2026-02-11T11:45:36.047514+01:00 demo-node CRON[8994]: (sysadmin) CMD (/usr/bin/systemctl restart nginx.service)
+2026-02-11T13:36:22.055433+01:00 demo-node CRON[18080]: (www-data) CMD (/usr/bin/logrotate /etc/logrotate.conf)
+2026-02-11T15:27:08.063352+01:00 demo-node CRON[21871]: (www-data) CMD (/usr/bin/systemctl restart nginx.service)
+2026-02-11T17:17:54.071271+01:00 demo-node CRON[42686]: (munin) CMD (/usr/local/bin/backup --incremental)
+2026-02-11T19:08:40.079190+01:00 demo-node CRON[1123]: (munin) CMD (/usr/bin/find /var/tmp -type f -mtime +7 -delete)
+2026-02-11T20:59:26.087109+01:00 demo-node CRON[37410]: (www-data) CMD (/usr/local/bin/backup --incremental)
+2026-02-11T22:50:12.095028+01:00 demo-node CRON[40239]: (backup) CMD (/usr/bin/php -d detect_unicode=0 /usr/share/munin/munin-cron)
+2026-02-11T02:57:36.000000+01:00 demo-node nginx[33969]: SSL_do_handshake() failed (SSL: error:600646:SSL routines:tls_process_client_hello:unknown) while SSL handshaking, client: 84.44.205.172, server: example.test
+2026-02-11T10:57:36.007919+01:00 demo-node nginx[21407]: client sent too large body: 3813674 bytes, client: 64.3.133.99, server: example.test, request: "POST /health HTTP/1.1"
+2026-02-11T18:57:36.015838+01:00 demo-node nginx[19988]: connect() failed (111: Connection refused) while connecting to upstream, client: 150.5.133.168, server: api.example.test, request: "GET /robots.txt HTTP/1.1"
+2026-02-11T01:28:48.000000+01:00 demo-node kernel: blk_update_request: I/O error, dev nvme0n1, sector 7818032
+2026-02-11T05:28:48.007919+01:00 demo-node kernel: eth0: link down
+2026-02-11T09:28:48.015838+01:00 demo-node kernel: usb 1-1: new low-speed USB device number 9 using xhci_hcd
+2026-02-11T13:28:48.023757+01:00 demo-node kernel: usb 1-1: new full-speed USB device number 16 using xhci_hcd
+2026-02-11T17:28:48.031676+01:00 demo-node kernel: eth0: link down
+2026-02-11T21:28:48.039595+01:00 demo-node kernel: snd_hda_intel: codec init failed with error -1
+2026-02-12T04:26:23.000000+01:00 demo-node sshd[24685]: Failed password for root from 107.241.111.196 port 17241 ssh2
+2026-02-12T16:26:24.007919+01:00 demo-node sshd[5318]: Failed password for invalid user ubuntu from 145.57.31.213 port 36914 ssh2
+2026-02-12T01:46:33.000000+01:00 demo-node systemd[10983]: cron.service: Main process exited, code=exited, status=2/FAILURE
+2026-02-12T06:34:33.007919+01:00 demo-node systemd[7817]: Started systemd-logind.service.
+2026-02-12T11:22:33.015838+01:00 demo-node systemd[38417]: Started docker.service.
+2026-02-12T00:40:59.000000+01:00 demo-node CRON[37156]: (root) CMD (/usr/bin/systemctl restart nginx.service)
+2026-02-12T02:31:45.007919+01:00 demo-node CRON[44290]: (munin) CMD (run-parts --report /etc/cron.hourly)
+2026-02-12T04:22:31.015838+01:00 demo-node CRON[26148]: (munin) CMD (run-parts --report /etc/cron.hourly)
+2026-02-12T06:13:17.023757+01:00 demo-node CRON[49077]: (www-data) CMD (/usr/bin/logrotate /etc/logrotate.conf)
+2026-02-12T08:04:03.031676+01:00 demo-node CRON[3168]: (backup) CMD (/usr/bin/certbot renew --quiet)
+2026-02-12T09:54:49.039595+01:00 demo-node CRON[46100]: (root) CMD (run-parts --report /etc/cron.hourly)
+2026-02-12T11:45:36.047514+01:00 demo-node CRON[4723]: (backup) CMD (run-parts --report /etc/cron.hourly)
+2026-02-12T13:36:22.055433+01:00 demo-node CRON[19014]: (backup) CMD (/usr/local/bin/backup --incremental)
+2026-02-12T15:27:08.063352+01:00 demo-node CRON[9075]: (backup) CMD (/usr/bin/certbot renew --quiet)
+2026-02-12T17:17:54.071271+01:00 demo-node CRON[25266]: (backup) CMD (/usr/bin/php -d detect_unicode=0 /usr/share/munin/munin-cron)
+2026-02-12T19:08:40.079190+01:00 demo-node CRON[24818]: (root) CMD (/usr/local/bin/backup --incremental)
+2026-02-12T20:59:26.087109+01:00 demo-node CRON[43030]: (munin) CMD (/usr/bin/logrotate /etc/logrotate.conf)
+2026-02-12T22:50:12.095028+01:00 demo-node CRON[11896]: (sysadmin) CMD (/usr/bin/php -d detect_unicode=0 /usr/share/munin/munin-cron)
+2026-02-12T02:57:36.000000+01:00 demo-node nginx[34858]: connect() failed (111: Connection refused) while connecting to upstream, client: 33.114.1.194, server: example.test, request: "GET /login HTTP/1.1"
+2026-02-12T10:57:36.007919+01:00 demo-node nginx[47326]: connect() failed (111: Connection refused) while connecting to upstream, client: 140.217.194.211, server: example.test, request: "GET /api/v1/items HTTP/1.1"
+2026-02-12T18:57:36.015838+01:00 demo-node nginx[10366]: client sent too large body: 1179823 bytes, client: 71.96.57.9, server: static.example.test, request: "POST /health HTTP/1.1"
+2026-02-12T01:16:06.000000+01:00 demo-node kernel: wlan0: link up
+2026-02-12T04:41:49.007919+01:00 demo-node kernel: blk_update_request: I/O error, dev sda, sector 7500038
+2026-02-12T08:07:32.015838+01:00 demo-node kernel: blk_update_request: I/O error, dev sda, sector 4115957
+2026-02-12T11:33:15.023757+01:00 demo-node kernel: blk_update_request: I/O error, dev sda, sector 6758892
+2026-02-12T14:58:58.031676+01:00 demo-node kernel: wlan0: link up
+2026-02-12T18:24:41.039595+01:00 demo-node kernel: blk_update_request: I/O error, dev sda, sector 2361084
+2026-02-12T21:50:24.047514+01:00 demo-node kernel: usb 1-1: new high-speed USB device number 38 using xhci_hcd
+2026-02-13T04:26:23.000000+01:00 demo-node sshd[21099]: Accepted publickey for deploy from 148.164.121.78 port 58450 ssh2: RSA SHA256:79961132
+2026-02-13T16:26:24.007919+01:00 demo-node sshd[14686]: Failed password for deploy from 106.153.140.16 port 37509 ssh2
+2026-02-13T01:46:33.000000+01:00 demo-node systemd[36628]: Started docker.service.
+2026-02-13T06:34:33.007919+01:00 demo-node systemd[22771]: Stopped systemd-logind.service.
+2026-02-13T11:22:33.015838+01:00 demo-node systemd[34571]: Stopped cron.service.
+2026-02-13T16:10:33.023757+01:00 demo-node systemd[26955]: Started ssh.service.
+2026-02-13T20:58:33.031676+01:00 demo-node systemd[12250]: Stopped networking.service.
+2026-02-13T00:40:59.000000+01:00 demo-node CRON[15992]: (www-data) CMD (/usr/bin/find /var/tmp -type f -mtime +7 -delete)
+2026-02-13T02:31:45.007919+01:00 demo-node CRON[46571]: (www-data) CMD (/usr/bin/systemctl restart nginx.service)
+2026-02-13T04:22:31.015838+01:00 demo-node CRON[3976]: (sysadmin) CMD (/usr/bin/php -d detect_unicode=0 /usr/share/munin/munin-cron)
+2026-02-13T06:13:17.023757+01:00 demo-node CRON[27496]: (sysadmin) CMD (/usr/local/bin/backup --incremental)
+2026-02-13T08:04:03.031676+01:00 demo-node CRON[25655]: (www-data) CMD (/usr/bin/find /var/tmp -type f -mtime +7 -delete)
+2026-02-13T09:54:49.039595+01:00 demo-node CRON[13525]: (munin) CMD (/usr/bin/logrotate /etc/logrotate.conf)
+2026-02-13T11:45:36.047514+01:00 demo-node CRON[29677]: (munin) CMD (/usr/bin/logrotate /etc/logrotate.conf)
+2026-02-13T13:36:22.055433+01:00 demo-node CRON[35303]: (www-data) CMD (run-parts --report /etc/cron.hourly)
+2026-02-13T15:27:08.063352+01:00 demo-node CRON[17793]: (backup) CMD (run-parts --report /etc/cron.hourly)
+2026-02-13T17:17:54.071271+01:00 demo-node CRON[4969]: (www-data) CMD (/usr/bin/apt-get -qq update)
+2026-02-13T19:08:40.079190+01:00 demo-node CRON[31617]: (www-data) CMD (/usr/bin/certbot renew --quiet)
+2026-02-13T20:59:26.087109+01:00 demo-node CRON[20069]: (root) CMD (/usr/bin/apt-get -qq update)
+2026-02-13T22:50:12.095028+01:00 demo-node CRON[12653]: (root) CMD (/usr/bin/systemctl restart nginx.service)
+2026-02-13T02:57:36.000000+01:00 demo-node nginx[16098]: connect() failed (111: Connection refused) while connecting to upstream, client: 179.104.203.235, server: example.test, request: "GET /assets/app.js HTTP/1.1"
+2026-02-13T10:57:36.007919+01:00 demo-node nginx[18750]: client sent too large body: 5220041 bytes, client: 98.238.183.79, server: api.example.test, request: "POST /login HTTP/1.1"
+2026-02-13T18:57:36.015838+01:00 demo-node nginx[30740]: connect() failed (111: Connection refused) while connecting to upstream, client: 26.240.163.235, server: example.test, request: "GET /login HTTP/1.1"
+2026-02-13T01:16:06.000000+01:00 demo-node kernel: wlan0: link up
+2026-02-13T04:41:49.007919+01:00 demo-node kernel: usb 1-1: new low-speed USB device number 39 using xhci_hcd
+2026-02-13T08:07:32.015838+01:00 demo-node kernel: [drm] GPU HANG: ecode 4:2:3:5
+2026-02-13T11:33:15.023757+01:00 demo-node kernel: [drm] GPU HANG: ecode 9:3:7:8
+2026-02-13T14:58:58.031676+01:00 demo-node kernel: usb 2-3: new full-speed USB device number 33 using xhci_hcd
+2026-02-13T18:24:41.039595+01:00 demo-node kernel: snd_hda_intel: codec init failed with error -2
+2026-02-13T21:50:24.047514+01:00 demo-node kernel: usb 2-3: new high-speed USB device number 10 using xhci_hcd
+2026-02-13T23:50:10.000000+01:00 demo-node sshd[618]: Accepted publickey for ubuntu from 185.250.94.235 port 59309 ssh2: RSA SHA256:17882882
+2026-02-13T23:50:10.123456+01:00 demo-node systemd[27226]: Started postgresql.service.
+2026-02-13T23:50:10.246912+01:00 demo-node CRON[9210]: (root) CMD (run-parts --report /etc/cron.hourly)

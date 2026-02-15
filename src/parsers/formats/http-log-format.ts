@@ -80,28 +80,3 @@ export const httpAccessCombined: LogFormat<HttpAccessCombinedFields> = {
     userAgent: match[9] as string,
   }),
 };
-
-interface HttpAccessCommonFields {
-  ip: string;
-  timestamp: Date;
-  method: string;
-  path: string;
-  protocol: string;
-  status: string;
-  size: string;
-}
-
-// Common Log Format:
-// 127.0.0.1 - - [10/Oct/2023:13:55:36 +0000] "GET /index.html HTTP/1.1" 200 2326
-export const httpAccessCommon: LogFormat<HttpAccessCommonFields> = {
-  pattern: /^(\S+) \S+ \S+ \[([^\]]+)] "(\S+) (\S+) (\S+)" (\d+) (\d+|-)$/,
-  transform: (match) => ({
-    ip: match[1] as string,
-    timestamp: parseTimestamp(match[2] as string),
-    method: match[3] as string,
-    path: match[4] as string,
-    protocol: match[5] as string,
-    status: match[6] as string,
-    size: match[7] as string,
-  }),
-};

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Syslog Activity Report</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .app-section {
+      margin-bottom: 40px;
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 4px;
+    }
+    .app-section h3 {
+      margin-top: 0;
+    }
+    .chart-wrapper {
+      height: 200px;
+    }
+  </style>
+</head>
+<body>
+<h1>Syslog Activity Report</h1>
+
+<p>Total entries: <strong><%= stats.totalEntries.toLocaleString() %></strong></p>
+<p>Parse errors: <strong><%= stats.parseErrors.toLocaleString() %></strong></p>
+<p>Date range: <strong><%= dateRange.minDate %></strong> to <strong><%= dateRange.maxDate %></strong></p>
+<p>Dates on charts are in MM-DD format</p>
+
+<% charts.forEach(chart => { %>
+  <div class="app-section">
+    <h3><%= chart.app %></h3>
+    <p>Total entries: <%= chart.totalEntries.toLocaleString() %></p>
+    <div class="chart-wrapper">
+      <canvas id="chart-<%= chart.appId %>" class="chart-wrapper"></canvas>
+    </div>
+  </div>
+<% }); %>
+
+<script src="assets/chart.umd.min.js"></script>
+<script>
+  const options = {
+    animation: false,
+    normalized: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        display: false
+      }
+    }
+  }
+  <% charts.forEach(chart => { %>
+  new Chart(document.getElementById('chart-<%= chart.appId %>'), {
+    type: 'line',
+    data: {
+      labels: <%- JSON.stringify(chart.labels) %>,
+      datasets: [{
+        label: '',
+        data: <%- JSON.stringify(chart.series) %>,
+        borderWidth: 2
+      }]
+    },
+    options: options
+  });
+  <% }); %>
+</script>
+</body>
+</html>
